@@ -138,6 +138,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .main-menu-submenu ul li a {color:#2d2f34; text-decoration:none; display:block; padding:10px 0 13px 0}
 
 .content {padding:63px 122px 63px 122px}
+.content strong {color:#431a2d}
 
 .help-link {display:inline-block; vertical-align:middle; width:16px; height:18px; background:url(../images/help-link.png)}
 .dots-link {text-decoration:none; border-bottom:1px dashed #431a2d}
@@ -185,6 +186,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .note-3 {background:none; padding:0 20px; font-style:italic; color:#aaa}
 .note span {float:left; clear:left; margin:0 0 0 -20px; width:20px; white-space:nowrap; font-style:normal}
 .note span strong {font-weight:normal; color:#431a2d}
+.note-link {color:#431a2d}
 
 .rubl {font-family:Roboto, sans-serif; font-weight:300}
 
@@ -215,6 +217,69 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .options-item-inner {display:table; border-collapse:collapse; border-spacing:0}
 .options-item-icon {display:table-cell; vertical-align:middle; width:83px; padding:0 0 0 37px; text-align:left; line-height:0}
 .options-item-title {display:table-cell; vertical-align:middle}
+
+.tools-text {color:#fff; margin:48px -122px; padding:11px 362px 49px 122px; background:#431a2d url(../images/tools-text.jpg) no-repeat center; background-size:cover}
+.tools-text h2 {color:#fff}
+.tools-text h3 {color:#fff}
+.tools-text h4 {color:#fff}
+
+.funds {position:relative; border-left:1px solid #aaa; border-bottom:1px solid #aaa; width:779px; height:383px; margin:69px 0 0 0}
+.funds-title-1 {position:absolute; left:-51px; top:-24px; font-size:11px; color:#aaa; text-transform:uppercase; -moz-transform-origin:right bottom; -ms-transform-origin:right bottom; -webkit-transform-origin:right bottom; -o-transform-origin:right bottom; transform-origin:right bottom; -moz-transform:rotate(-90deg); -ms-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg); transform:rotate(-90deg)}
+.funds-title-2 {position:absolute; right:0; bottom:1px; font-size:11px; color:#aaa; text-transform:uppercase}
+.funds-line {width:780px; height:360px; position:absolute; left:-1px; bottom:-1px; background:url(../images/funds-line.png)}
+.funds-item {position:absolute; height:64px}
+.funds-item-1 {left:37px; top:207px}
+.funds-item-2 {left:117px; top:140px}
+.funds-item-3 {left:197px; top:93px}
+.funds-item-4 {left:277px; top:64px}
+.funds-item-5 {left:357px; top:37px}
+.funds-item-6 {left:437px; top:17px}
+.funds-item-7 {left:517px; top:5px}
+.funds-item-8 {left:597px; top:-5px}
+.funds-item-9 {left:677px; top:-8px}
+.funds-item-link {position:absolute; left:0; top:0; width:64px; height:64px; text-align:center; cursor:pointer}
+.funds-item-icon {width:64px; height:64px; background:#fff; line-height:64px; border-radius:50%}
+.funds-item-icon img {vertical-align:middle}
+.funds-item-icon img:nth-child(2) {position:absolute; left:-9999px; top:-9999px}
+.funds-item-link:hover .funds-item-icon,
+.funds-item.active .funds-item-icon {background:#431a2d}
+.funds-item-link:hover .funds-item-icon img:nth-child(1),
+.funds-item.active .funds-item-icon img:nth-child(1) {display:none}
+.funds-item-link:hover .funds-item-icon img:nth-child(2),
+.funds-item.active .funds-item-icon img:nth-child(2) {position:static; left:auto; top:auto}
+.funds-item-title {position:absolute; left:50%; top:100%; padding-top:12px; font-size:11px; line-height:15px; color:#431a2d; text-transform:uppercase; transform:translateX(-50%)}
+.funds-item-link:hover .funds-item-icon:before,
+.funds-item.active.funds-item-link .funds-item-icon:before {content:""; display:block; position:absolute; height:0; border-top:1px dashed #431a2d; right:80px; top:32px}
+.funds-item-link:hover .funds-item-icon:after,
+.funds-item.active.funds-item-link .funds-item-icon:after {content:""; display:block; position:absolute; width:0; border-left:1px dashed #431a2d; left:32px}
+.funds-item-1 .funds-item-icon:before {width:21px}
+.funds-item-2 .funds-item-icon:before {width:101px}
+.funds-item-3 .funds-item-icon:before {width:181px}
+.funds-item-4 .funds-item-icon:before {width:261px}
+.funds-item-5 .funds-item-icon:before {width:341px}
+.funds-item-6 .funds-item-icon:before {width:421px}
+.funds-item-7 .funds-item-icon:before {width:501px}
+.funds-item-8 .funds-item-icon:before {width:581px}
+.funds-item-9 .funds-item-icon:before {width:661px}
+.funds-item-1 .funds-item-icon:after {height:58px; top:118px}
+.funds-item-2 .funds-item-icon:after {height:110px; top:133px}
+.funds-item-3 .funds-item-icon:after {height:172px; top:118px}
+.funds-item-4 .funds-item-icon:after {height:201px; top:118px}
+.funds-item-5 .funds-item-icon:after {height:243px; top:103px}
+.funds-item-6 .funds-item-icon:after {height:233px; top:133px}
+.funds-item-7 .funds-item-icon:after {height:260px; top:118px}
+.funds-item-8 .funds-item-icon:after {height:270px; top:118px}
+.funds-item-9 .funds-item-icon:after {height:273px; top:118px}
+.funds-item-window {display:none; position:absolute; overflow:hidden; left:42px; top:50%; transform:translateY(-50%); background:#fff; z-index:9; width:240px; padding:46px 30px 0 30px; box-shadow:0 7px 16px rgba(67, 26, 45, .5)}
+.funds-item.active .funds-item-window {display:block}
+.funds-item-more {font-size:12px; text-transform:uppercase; margin:24px 0}
+.funds-item-more a {text-decoration:none}
+.funds-item-window-prev {display:block; width:9px; height:15px; background:url(../images/funds-item-window-prev.png); position:absolute; left:30px; top:17px}
+.funds-item-window-next {display:block; width:9px; height:15px; background:url(../images/funds-item-window-next.png); position:absolute; left:50px; top:17px}
+.funds-item-window-close {display:block; width:15px; height:15px; background:url(../images/funds-item-window-close.png); position:absolute; right:30px; top:17px}
+.funds-item-7 .funds-item-window {margin-top:20px}
+.funds-item-8 .funds-item-window {margin-top:30px}
+.funds-item-9 .funds-item-window {margin-top:33px}
 
 footer {position:fixed; left:0; right:0; bottom:0; z-index:80}
 

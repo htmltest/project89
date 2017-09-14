@@ -69,6 +69,41 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    $('.funds-item-link').click(function() {
+        var curItem = $(this).parent();
+        if (curItem.hasClass('active')) {
+            curItem.removeClass('active');
+        } else {
+            $('.funds-item.active').removeClass('active');
+            curItem.addClass('active');
+        }
+    });
+
+    $('.funds-item-window-prev').click(function(e) {
+        var curIndex = $('.funds-item').index($('.funds-item.active'));
+        curIndex--;
+        if (curIndex < 0) {
+            curIndex = $('.funds-item').length - 1;
+        }
+        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
+        e.preventDefault();
+    });
+
+    $('.funds-item-window-next').click(function(e) {
+        var curIndex = $('.funds-item').index($('.funds-item.active'));
+        curIndex++;
+        if (curIndex > $('.funds-item').length - 1) {
+            curIndex = 0;
+        }
+        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
+        e.preventDefault();
+    });
+
+    $('.funds-item-window-close').click(function(e) {
+        $('.funds-item.active').removeClass('active');
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('load resize', resizeContent);
