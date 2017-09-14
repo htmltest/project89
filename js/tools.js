@@ -109,7 +109,7 @@ $(document).ready(function() {
 $(window).on('load resize', resizeContent);
 
 function resizeContent() {
-    $('.wrapper-content').css({'height': $('.wrapper').outerHeight() - $('header').height() - $('footer').height()});
+    $('.wrapper-content').css({'bottom': $('footer').height()});
 
     $('.insur-scheme-center-inner').each(function() {
         var curBlock = $(this);
