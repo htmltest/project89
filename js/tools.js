@@ -114,7 +114,9 @@ function resizeContent() {
     $('.insur-scheme-center-inner').each(function() {
         var curBlock = $(this);
         var curHeight = curBlock.parent().height();
+        var curWidth = $('.content').width();
         curBlock.height(curHeight);
         curBlock.find('span').css({'border-top-width': curHeight / 2, 'border-bottom-width': curHeight / 2});
+        curBlock.find('strong').css({'border-left-width': curWidth / 2, 'border-right-width': curWidth / 2});
     });
 }
