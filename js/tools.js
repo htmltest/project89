@@ -54,10 +54,21 @@ $(document).ready(function() {
         }
     });
 
+    $('.page-inner .wrapper-content').jScrollPane({
+        autoReinitialise: true
+    });
+
 });
 
 $(window).on('load resize', resizeContent);
 
 function resizeContent() {
-    $('.wrapper-content').css({'height': $('.wrapper').height()});
+    $('.wrapper-content').css({'height': $('.wrapper').outerHeight() - $('header').height() - $('footer').height()});
+
+    $('.insur-scheme-center-inner').each(function() {
+        var curBlock = $(this);
+        var curHeight = curBlock.parent().height();
+        curBlock.height(curHeight);
+        curBlock.find('span').css({'border-top-width': curHeight / 2, 'border-bottom-width': curHeight / 2});
+    });
 }
