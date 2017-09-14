@@ -58,6 +58,17 @@ $(document).ready(function() {
         autoReinitialise: true
     });
 
+    $('.tabs-menu ul li a').click(function(e) {
+        var curLi = $(this).parent();
+        if (!curLi.hasClass('active')) {
+            var curTabs = curLi.parents().filter('.tabs');
+            var curIndex = curTabs.find('.tabs-menu ul li').index(curLi);
+            curTabs.find('.tabs-menu ul li.active').removeClass('active');
+            curLi.addClass('active');
+        }
+        e.preventDefault();
+    });
+
 });
 
 $(window).on('load resize', resizeContent);

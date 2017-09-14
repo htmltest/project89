@@ -1,4 +1,5 @@
 @font-face {font-family:"FedraSansPro"; src:url("../fonts/FedraSansProLight.woff") format("woff"); font-weight:normal; font-style:normal}
+@font-face {font-family:"FedraSansPro"; src:url("../fonts/FedraSansProLightItalic.woff") format("woff"); font-weight:italic; font-style:normal}
 @font-face {font-family:"FedraSansPro"; src:url("../fonts/FedraSansProBold.woff") format("woff"); font-weight:bold; font-style:normal}
 @font-face {font-family:"FedraSansProBook"; src:url("../fonts/FedraSansProBook.woff") format("woff"); font-weight:normal; font-style:normal}
 @font-face {font-family:"FedraSansProMedium"; src:url("../fonts/FedraSansProMedium.woff") format("woff"); font-weight:normal; font-style:normal}
@@ -180,8 +181,38 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .insur-scheme-right h4 {margin:0}
 
 .note {margin:48px 0; padding:22px 46px 26px 46px; background:#fff; position:relative}
-.note span {float:left; clear:left; margin:0 0 0 -20px; width:20px}
+.note-2 {background:none; padding:0 20px}
+.note-3 {background:none; padding:0 20px; font-style:italic; color:#aaa}
+.note span {float:left; clear:left; margin:0 0 0 -20px; width:20px; white-space:nowrap}
 .note span strong {font-weight:normal; color:#431a2d}
+
+.rubl {font-family:Roboto, sans-serif; font-weight:300}
+
+.tabs-menu {text-transform:uppercase; font-weight:bold; font-size:12px; line-height:20px}
+.tabs-menu:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.tabs-menu ul {margin:0; padding:0; list-style:none}
+.tabs-menu ul li {float:left; margin:0 0 0 40px; padding:0}
+.tabs-menu ul li:before {display:none}
+.tabs-menu ul li:first-child {margin:0}
+.tabs-menu ul li a {display:block; text-decoration:none; position:relative; color:#aaa; padding:14px 0}
+.tabs-menu ul li.active a {color:#431a2d}
+.tabs-menu ul li.active a:after {content:""; display:block; position:absolute; left:0; bottom:0; right:0; height:5px; background:#431a2d}
+
+.tab {display:none}
+.tab.active {display:block}
+
+.chart {background:#fff; margin:48px -122px}
+.tab .chart {margin-top:0; margin-bottom:0}
+
+.alert {color:#431a2d}
+
+.options {margin:24px -20px}
+.options-inner {display:table; width:100%; border-collapse:separate; border-spacing:20px 10px}
+.options-row {display:table-row}
+.options-item {display:table-cell; width:50%; border:1px solid #c5bbc0; height:78px; vertical-align:middle; color:#431a2d; text-decoration:none; font-weight:bold}
+.options-item-inner {display:table; border-collapse:collapse; border-spacing:0}
+.options-item-icon {display:table-cell; vertical-align:middle; width:83px; padding:0 0 0 37px; text-align:left; line-height:0}
+.options-item-title {display:table-cell; vertical-align:middle}
 
 footer {position:fixed; left:0; right:0; bottom:0; z-index:80}
 
