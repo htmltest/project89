@@ -81,11 +81,8 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .header-slides {float:right; position:relative; width:131px}
 .page-inner .header-slides {border-left:1px solid #f1f1f1}
 .header-slides-link {display:block; position:relative; height:27px; background:#fff; padding:45px 0 0 0; text-align:center; color:#aaa; text-decoration:none; font:10px/12px FedraSansProBook, sans-serif; text-transform:uppercase; transition:all .3s ease}
-.header-slides-link:before {content:""; display:block; width:50px; height:30px; background:url(../images/slides.png); position:absolute; left:50%; top:12px; margin-left:-24px}
-.header-slides-link.open:before {display:none}
-.header-slides-link span {display:block; width:50px; height:30px; background:url(../images/slides.gif) no-repeat left top; position:absolute; left:50%; top:12px; margin-left:-24px; opacity:0}
-.header-slides-link:hover span {opacity:1}
-.header-slides-link.open span {opacity:0}
+.header-slides-link span {display:block; width:50px; height:30px; position:absolute; left:50%; top:12px; margin-left:-24px}
+.header-slides-link.open span {display:none}
 .header-slides-link:after {content:""; display:block; width:20px; height:21px; background:url(../images/slides-active.png); position:absolute; left:50%; top:17px; margin-left:-10px; opacity:0; transition:all .3s ease}
 .header-slides-link.open {color:#431a2d; box-shadow:0 10px 21px rgba(30, 10, 20, .13); z-index:1}
 .header-slides-link.open:after {opacity:1}
@@ -117,11 +114,8 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .header-stacks {float:right; position:relative; width:130px; margin:0 1px 0 0}
 .page-inner .header-stacks {border-left:1px solid #f1f1f1; margin:0}
 .header-stacks-link {display:block; position:relative; height:27px; background:#fff; padding:45px 0 0 0; text-align:center; color:#aaa; text-decoration:none; font:10px/12px FedraSansProBook, sans-serif; text-transform:uppercase; transition:all .3s ease}
-.header-stacks-link:before {content:""; display:block; width:50px; height:30px; background:url(../images/stacks.png); position:absolute; left:50%; top:11px; margin-left:-24px}
-.header-stacks-link.open:before {display:none}
-.header-stacks-link span {display:block; width:50px; height:30px; background:url(../images/stacks.gif) no-repeat left top; position:absolute; left:50%; top:11px; margin-left:-24px; opacity:0}
-.header-stacks-link:hover span {opacity:1}
-.header-stacks-link.open span {opacity:0}
+.header-stacks-link span {display:block; width:50px; height:30px; position:absolute; left:50%; top:11px; margin-left:-24px}
+.header-stacks-link.open span {display:none}
 .header-stacks-link:after {content:""; display:block; width:20px; height:21px; background:url(../images/stacks-active.png); position:absolute; left:50%; top:16px; margin-left:-10px; opacity:0; transition:all .3s ease}
 .header-stacks-link.open {color:#431a2d; box-shadow:0 10px 21px rgba(30, 10, 20, .13); z-index:1}
 .header-stacks-link.open:after {opacity:1}
@@ -152,7 +146,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .wrapper-content {display:table-cell; vertical-align:middle}
 
 @media screen and (max-width:1023px) {
-    .wrapper {background:#41343b url(../images/main-bg-mobile.jpg) no-repeat center top; background-size:cover}
+    .wrapper {background:#41343b url(../images/main-bg-mobile.jpg) no-repeat center top; background-size:cover; height:auto}
     .wrapper-inner {display:block}
     .wrapper-content {display:block; vertical-align:top; overflow:auto}
 }
@@ -219,7 +213,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
     .main-menu-submenu ul {float:none; width:auto; padding:0; margin:0 30px; border-top:1px solid #f0e8ed}
 }
 
-.content {padding:63px 122px 63px 122px}
+.content {padding:63px 122px 63px 122px; max-width:1170px; margin:0 auto}
 .content strong {color:#431a2d}
 
 @media screen and (max-width:1023px) {
@@ -315,14 +309,12 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .tab {display:none}
 .tab.active {display:block}
 
-.chart {background:#fff; margin:48px -122px}
-.chart+.chart {margin-top:-47px}
-.tab .chart {margin-top:0; margin-bottom:0}
+.chart {background:#fff}
+.content+.chart {margin:-63px 0 0 0}
+.chart+.content {padding-top:0}
 .tabs+.chart {margin-top:1px}
 
-@media screen and (max-width:1023px) {
-    .chart {margin-left:-35px; margin-right:-35px}
-}
+.chart-content {position:relative; width:100%}
 
 .alert {color:#431a2d}
 
@@ -469,16 +461,10 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 
 .footer-links {background:#fff; height:48px; line-height:48px; text-align:center; position:relative}
 .footer-links img {vertical-align:middle}
-.footer-links a {margin:0 8px; display:inline-block; vertical-align:middle}
-.footer-links a.footer-link-charts {width:42px; height:42px; background:url(../images/footer-charts.png); position:relative}
-.footer-links a.footer-link-charts:after {content:""; display:block; opacity:0; width:42px; height:42px; position:absolute; left:0; top:0; background:url(../images/footer-charts.gif)}
-.footer-links a.footer-link-charts:hover:after {opacity:1}
-.footer-links a.footer-link-download {width:42px; height:42px; background:url(../images/footer-download.png); position:relative}
-.footer-links a.footer-link-download:after {content:""; display:block; opacity:0; width:42px; height:42px; position:absolute; left:0; top:0; background:url(../images/footer-download.gif)}
-.footer-links a.footer-link-download:hover:after {opacity:1}
-.footer-links a.footer-link-info {width:42px; height:42px; background:url(../images/footer-info.png); position:relative}
-.footer-links a.footer-link-info:after {content:""; display:block; opacity:0; width:42px; height:42px; position:absolute; left:0; top:0; background:url(../images/footer-info.gif)}
-.footer-links a.footer-link-info:hover:after {opacity:1}
+.footer-links a {margin:0 8px; display:inline-block; vertical-align:middle; line-height:0}
+.footer-links a.footer-link-charts {width:42px; height:42px; position:relative}
+.footer-links a.footer-link-download {width:42px; height:42px; position:relative}
+.footer-links a.footer-link-info {width:42px; height:42px; position:relative}
 .footer-links a.footer-links-prev {display:block; margin:0; position:absolute; left:0; top:0; padding:0 28px 0 58px; border-right:1px solid #f1f1f1; height:48px; font:10px/48px FedraSansProBook, sans-serif; text-transform:uppercase; white-space:nowrap; color:#431a2d; text-decoration:none}
 .footer-links a.footer-links-prev span {display:block; position:relative; width:174px; overflow:hidden; text-overflow:ellipsis; text-align:right}
 .footer-links a.footer-links-prev:after {content:""; display:block; width:15px; height:11px; position:absolute; left:30px; top:19px; background:url(../images/footer-links-prev.png)}
@@ -505,5 +491,6 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
     .license {height:auto; line-height:16px; padding:6px 30px 10px 30px}
 }
 
-.pageload-overlay {position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:#431a2d url(../images/preloader.gif) no-repeat center}
+.pageload-overlay {display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:#aaa}
+.pageload-overlay img {position:absolute; left:50%; top:50%; margin:-71px 0 0 -203px; width:406px; height:142px}
 .wrapper-content .pageload-overlay {position:absolute; z-index:auto}

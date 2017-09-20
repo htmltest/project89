@@ -1,7 +1,4 @@
 $(document).ready(function() {
-
-    $('body').append('<div class="pageload-overlay"></div>');
-
     createSlides();
 
     resizeContent();
@@ -17,6 +14,20 @@ $(document).ready(function() {
         }
     });
 
+    $('body').on('mouseover', '.header-slides-link', function(e) {
+        var curImg = $(this).find('span img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
+    });
+
+    $('body').on('mouseout', '.header-slides-link', function(e) {
+        var curImg = $(this).find('span img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
+    });
+
     $('body').on('click', '.header-stacks-link', function(e) {
         $(this).toggleClass('open');
         $('.header-stacks-list').slideToggle();
@@ -28,6 +39,34 @@ $(document).ready(function() {
             $('.header-stacks-link').removeClass('open');
             $('.header-stacks-list').slideUp();
         }
+    });
+
+    $('body').on('mouseover', '.header-stacks-link', function(e) {
+        var curImg = $(this).find('span img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
+    });
+
+    $('body').on('mouseout', '.header-stacks-link', function(e) {
+        var curImg = $(this).find('span img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
+    });
+
+    $('body').on('mouseover', '.footer-link-charts, .footer-link-download, .footer-link-info', function(e) {
+        var curImg = $(this).find('img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
+    });
+
+    $('body').on('mouseout', '.footer-link-charts, .footer-link-download, .footer-link-info', function(e) {
+        var curImg = $(this).find('img');
+        var curScr = curImg.attr('src');
+        curImg.attr('src', curImg.data('animate'));
+        curImg.data('animate', curScr);
     });
 
     $('body').on('click', '.main-menu-item-link', function(e) {
@@ -101,46 +140,56 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '.ajax-page', function(e) {
-        $('.pageload-overlay').remove();
-        $('body').append('<div class="pageload-overlay"></div>');
-
         var curLink = $(this);
+
         if (typeof (history.pushState) != 'undefined') {
-            var startTime = Date.now();
-            $.ajax({
-                url: curLink.attr('href'),
-                dataType: 'html',
-                cache: false
-            }).done(function(response) {
-                var obj = {Page: '', Url: curLink.attr('href')};
-                history.pushState(obj, obj.Page, obj.Url);
+            var curLoad = $('.pageload-overlay');
+            var curSrc = curLoad.find('img').attr('src');
+            curLoad.find('img').attr('src', curLoad.find('img').data('animate'));
+            curLoad.find('img').data('animate', curSrc);
 
-                var newHTML = $('<div></div>').html(response);
-                $('header').html(newHTML.find('header').html());
-                $('footer').html(newHTML.find('footer').html());
-                $('.wrapper-content').html(newHTML.find('.wrapper-content').html());
-                if (curLink.hasClass('ajax-page-main')) {
-                    $('body').removeClass('page-inner');
-                } else {
-                    $('body').addClass('page-inner');
-                }
+            curLoad.fadeIn(function() {
+                var startTime = Date.now();
+                $.ajax({
+                    url: curLink.attr('href'),
+                    dataType: 'html',
+                    cache: false
+                }).done(function(response) {
+                    var obj = {Page: '', Url: curLink.attr('href')};
+                    history.pushState(obj, obj.Page, obj.Url);
 
-                newHTML.remove();
+                    var newHTML = $('<div></div>').html(response);
+                    $('header').html(newHTML.find('header').html());
+                    $('footer').html(newHTML.find('footer').html());
+                    $('.wrapper-content').html(newHTML.find('.wrapper-content').html());
+                    if (curLink.hasClass('ajax-page-main')) {
+                        $('body').removeClass('page-inner');
+                    } else {
+                        $('body').addClass('page-inner');
+                    }
 
-                resizeContent();
+                    newHTML.remove();
 
-                var processTime = Date.now() - startTime;
+                    resizeContent();
 
-                if (processTime < 2000) {
-                    window.setTimeout(function() {
-                        $('.pageload-overlay').remove();
-                        afterLoadContent();
-                    }, 2000 - processTime);
-                } else {
-                    $('.pageload-overlay').remove();
-                    afterLoadContent();
-                }
+                    var processTime = Date.now() - startTime;
 
+                    if (processTime < 2000) {
+                        window.setTimeout(showPage, 2000 - processTime);
+                    } else {
+                        showPage();
+                    }
+
+                    function showPage() {
+                        $('.pageload-overlay').fadeOut(function() {
+                            var curSrc = curLoad.find('img').attr('src');
+                            curLoad.find('img').attr('src', curLoad.find('img').data('animate'));
+                            curLoad.find('img').data('animate', curSrc);
+
+                            afterLoadContent();
+                        })
+                    }
+                });
             });
 
             e.preventDefault();
@@ -160,7 +209,8 @@ $(document).ready(function() {
 $(window).on('load resize', resizeContent);
 
 function resizeContent() {
-    $('.page-inner .wrapper-content').height($('.wrapper').height() - $('header').height() - $('footer').height());
+    var windowHeight = $(document).height();
+    $('.wrapper-content').height(windowHeight - $('header').height() - $('footer').height());
 
     $('.insur-scheme-center-inner').each(function() {
         var curBlock = $(this);
@@ -173,8 +223,6 @@ function resizeContent() {
 }
 
 $(window).on('load', function() {
-    $('.pageload-overlay').remove();
-
     afterLoadContent();
 });
 
