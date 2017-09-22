@@ -227,13 +227,13 @@ $(window).on('load', function() {
 });
 
 function afterLoadContent() {
-    $('.header-slides-list-content').jScrollPane({
+/*    $('.header-slides-list-content').jScrollPane({
         autoReinitialise: true
     });
 
     $('.page-inner .wrapper-content').jScrollPane({
         autoReinitialise: true
-    });
+    });*/
 
     $('.funds-item').addClass('show');
 }
