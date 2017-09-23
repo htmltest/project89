@@ -1,0 +1,153 @@
+<div class="calc-results-top">
+    <div class="content">
+        <h2>Результаты расчета страховой выплаты по «Дожитию»</h2>
+        <div class="calc-results-notice">в валюте договора, до налогообложения</div>
+        <div class="calc-results-params">
+            <div class="calc-results-params-table">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td>Страховая Сумма</td>
+                            <td>1 000 000,00</td>
+                        </tr>
+                        <tr>
+                            <td>Доходность Базового Актива за период</td>
+                            <td>23,0%</td>
+                        </tr>
+                        <tr>
+                            <td>ИДД без учета валютной переоценки  (% от страховой премии)</td>
+                            <td>23,0%</td>
+                        </tr>
+                        <tr>
+                            <td>ИДД без учета валютной переоценки</td>
+                            <td>229 700</td>
+                        </tr>
+                        <tr>
+                            <td>Сумма валютной переоценки для определения ИДД</td>
+                            <td>291 0414</td>
+                        </tr>
+                        <tr>
+                            <td>ИДД с учетом валютной переоценки</td>
+                            <td>520 741</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Итого</strong></td>
+                            <td>1 520 741</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="calc-results-params-chart">
+                <div id="chart3" class="chart-content"></div>
+                <script type="text/javascript">
+                    var data = [
+                        {
+                            x: ['Начало действия договора', 'Итоговая выплата', 'Структура итоговой выплаты'],
+                            y: [1000000, 1520741, 1520741],
+                            type: 'bar'
+                        }
+                    ];
+
+                    Plotly.newPlot('chart3', data);
+               </script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="chart">
+    <div id="chart1" class="chart-content" style="height:650px"></div>
+    <script type="text/javascript">
+        Plotly.d3.csv('files/chart1.csv', function(err, rows) {
+            function unpack(rows, key) {
+                return rows.map(function(row) { return row[key]; });
+            }
+
+            var trace1 = {
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Золото',
+                x: unpack(rows, 'Дата'),
+                y: unpack(rows, 'Золото'),
+                line: {color: '#431a2d'}
+            }
+
+            var trace2 = {
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Недвижимость',
+                x: unpack(rows, 'Дата'),
+                y: unpack(rows, 'Недвижимость'),
+                line: {color: '#a18c96'}
+            }
+
+            var trace3 = {
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Глобальный фонд облигаций',
+                x: unpack(rows, 'Дата'),
+                y: unpack(rows, 'Глобальный фонд облигаций'),
+                line: {color: '#d0c6ca'}
+            }
+
+            var trace4 = {
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Новые технологии',
+                x: unpack(rows, 'Дата'),
+                y: unpack(rows, 'Новые технологии'),
+                line: {color: '#e8e3e5'}
+            }
+
+            var trace5 = {
+                type: 'scatter',
+                mode: 'lines',
+                name: 'Глобальный нефтяной сектор',
+                x: unpack(rows, 'Дата'),
+                y: unpack(rows, 'Глобальный нефтяной сектор'),
+                line: {color: '#17becf'}
+            }
+
+            var data = [trace1, trace2, trace3, trace4, trace5];
+
+            var layout = {
+                title: 'Результаты расчета страховой выплаты по «Дожитию»',
+                xaxis: {
+                    autorange: true,
+                    range: ['2004-01-01', '2017-09-13'],
+                    rangeselector: {buttons: [
+                        {
+                            count: 60,
+                            label: '5 лет',
+                            step: 'month',
+                            stepmode: 'backward'
+                        },
+                        {
+                            count: 84,
+                            label: '7 лет',
+                            step: 'month',
+                            stepmode: 'backward'
+                        },
+                        {
+                            count: 120,
+                            label: '10 лет',
+                            step: 'month',
+                            stepmode: 'backward'
+                        },
+                    ]},
+                    rangeslider: {range: ['2004-01-01', '2017-09-13']},
+                    type: 'date'
+                },
+                hovermode: 'closest'
+            };
+
+            Plotly.newPlot('chart1', data, layout, {displayModeBar: false});
+        });
+    </script>
+</div>
+
+<div class="content">
+    <h2>Результаты расчета страховой выплаты по «Дожитию»</h2>
+    <p>Вышеприведенный расчет приближен к фактическому, однако Страховщик не дает никаких заверений или гарантий относительно точности данной информации или достижения указанных значений, а также не принимает на себя дополнительные (иные) обязательства, помимо тех, что предусмотрены (будут предусмотрены) заключенным Страховщиком договором страхования.</p>
+    <p>Инвестирование сопряжено с рядом рисков, которые могут привести к существенным отклонениям от прогнозируемых показателей. Кроме того, историческая динамика базового актива не определяет будущие результаты. ИДД может достигнуть как положительного значения, так и снизиться до нуля.</p>
+</div>

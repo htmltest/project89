@@ -204,7 +204,75 @@ $(document).ready(function() {
         }
         e.preventDefault();
     });
+
+    $('form').each(function() {
+        initForm($(this));
+    });
+
+    $('.calc-form form').submit(function(e) {
+        $.ajax({
+            type: 'POST',
+            url: $(this).attr('action'),
+            dataType: 'html',
+            data: $(this).serialize(),
+            cache: false
+        }).done(function(html) {
+            $('.calc-results').html(html);
+            $('.calc-results').slideDown();
+        });
+        e.preventDefault();
+    });
+
 });
+
+$(window).on('resize', function() {
+    $('.form-select select').chosen('destroy');
+    $('.form-select select').chosen({disable_search: true, placeholder_text_multiple: ' ', no_results_text: 'Нет результатов'});
+    $('.form-select select').each(function() {
+        var curSelect = $(this);
+        if (curSelect.data('placeholder') != '') {
+            curSelect.parent().find('.chosen-single').prepend('<strong>' + curSelect.data('placeholder') + '</strong>');
+        }
+    });
+});
+
+function initForm(curForm) {
+    curForm.find('.form-input input, .form-input textarea').each(function() {
+        if ($(this).val() != '') {
+            $(this).parent().addClass('focus');
+        }
+    });
+
+    curForm.find('.form-input input, .form-input textarea').focus(function() {
+        $(this).parent().addClass('focus');
+    });
+
+    curForm.find('.form-input input, .form-input textarea').blur(function() {
+        if ($(this).val() == '') {
+            $(this).parent().removeClass('focus');
+        }
+    });
+
+    curForm.find('.form-select select').chosen({disable_search: true, no_results_text: 'Нет результатов'});
+    curForm.find('.form-select select').each(function() {
+        var curSelect = $(this);
+        if (curSelect.data('placeholder') != '') {
+            curSelect.parent().find('.chosen-single').prepend('<strong>' + curSelect.data('placeholder') + '</strong>');
+        }
+    });
+
+    var dateFormat = 'dd.mm.yy';
+    curForm.find('.form-input-date input').datepicker({
+        dateFormat: dateFormat
+    });
+    window.setInterval(function() {
+        $('.form-input-date input').each(function() {
+            if ($(this).val() != '') {
+                $(this).parent().addClass('focus');
+            }
+        });
+    }, 100);
+}
 
 $(window).on('load resize', resizeContent);
 
