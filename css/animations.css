@@ -1,5 +1,6 @@
 .did-chart,
 .funds-chart,
+.program-chart,
 .liq-chart {
     opacity: 0;
 }

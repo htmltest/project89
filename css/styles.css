@@ -2669,12 +2669,22 @@ footer {
     border-bottom: 1px solid #eeeeee;
 }
 
+.program-chart {
+    padding-bottom: 100px;
+}
+
+.program-chart .chart-graph {
+    height: 392px;
+    border-color: #aaaaaa;
+}
+
 .chart-hor .chart-graph {
     height: auto;
 }
 
 .funds-chart .chart-graph {
     border-bottom: none;
+    height: auto;
 }
 
 .chart-cols {
@@ -2685,12 +2695,22 @@ footer {
     bottom: 0;
 }
 
+.program-chart .chart-cols {
+    left: 9%;
+    right: 9%;
+}
+
 .funds-chart .chart-rows {
     margin: 0 0 0 80px;
 }
 
 .funds-chart .chart-row {
     position: relative;
+    height: 36px;
+}
+
+.funds-chart-alt .chart-row {
+    height: 48px;
 }
 
 .funds-chart .chart-row-label {
@@ -2734,11 +2754,36 @@ footer {
     line-height: 240px;
 }
 
+.program-chart .chart-col {
+    line-height: 392px;
+}
+
+.program-chart .chart-col-val {
+    font-size: 15px;
+    line-height: 24px;
+    height: 24px;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 50%;
+    margin-top: -12px;
+    text-align: center;
+    color: #fff;
+}
+
 .chart-subcol {
     position: absolute;
     left: 0;
     bottom: 0;
     width: 100%;
+    overflow: hidden;
+}
+
+.program-chart .chart-subcol {
+    left: 10px;
+    right: 10px;
+    bottom: 4px;
+    width: auto;
 }
 
 .liq-chart .chart-col {
@@ -2771,6 +2816,14 @@ footer {
     margin: 0 3%;
 }
 
+.chart-col-8 {
+    width: 12.5%;
+    padding: 0 10px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 .chart-col-10 {
     width: 6%;
     margin: 0 2%;
@@ -2788,6 +2841,10 @@ footer {
     background-color: #b59ba7;
 }
 
+.chart-color-4 {
+    background-color: #aaaaaa;
+}
+
 .chart-grid {
     position: absolute;
     left: 7%;
@@ -2796,7 +2853,8 @@ footer {
     bottom: 0;
 }
 
-.liq-chart .chart-grid {
+.liq-chart .chart-grid,
+.program-chart .chart-grid {
     left: 0;
     right: 0;
 }
@@ -2958,6 +3016,11 @@ footer {
     bottom: 0;
 }
 
+.program-chart .chart-plot-captions {
+    left: 9%;
+    right: 9%;
+}
+
 .chart-plot-captions-line {
     position: absolute;
     left: 0;
@@ -2972,6 +3035,11 @@ footer {
     line-height: 20px;
     font-weight: bold;
     color: #431a2d;
+}
+
+.program-chart .chart-plot-captions-item {
+    font-size: 15px;
+    line-height: 24px;
 }
 
 .chart-caption-did {
@@ -3004,6 +3072,55 @@ footer {
     margin-top: -7px;
 }
 
+.program-chart-caption-1 {
+    
+    left: -33px;
+    top: 253px;
+    -webkit-transform: rotate(-90deg);
+    -moz-transform: rotate(-90deg);
+    -ms-transform: rotate(-90deg);
+    -o-transform: rotate(-90deg);
+    transform: rotate(-90deg);
+    -webkit-transform-origin: 0 0;
+    -moz-transform-origin: 0 0;
+    -ms-transform-origin: 0 0;
+    -o-transform-origin: 0 0;
+    transform-origin: 0 0;
+}
+
+.program-chart-caption-2 {
+    left: 0;
+    top: 207px;
+    right: 0;
+    text-align: center;
+}
+
+.program-chart-caption-3 {
+    left: 0;
+    top: 412px;
+    right: 0;
+    text-align: center;
+}
+
+.program-chart-caption-4 {
+    
+    right: -33px;
+    top: 337px;
+    
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    transform: rotate(90deg);
+
+    /* also accepts left, right, top, bottom coordinates; not required, but a good idea for styling */
+    -webkit-transform-origin: 100% 0;
+    -moz-transform-origin: 100% 0;
+    -ms-transform-origin: 100% 0;
+    -o-transform-origin: 100% 0;
+    transform-origin: 100% 0;
+}
+
 .chart-descr {
     margin: 40px 0 0 0;
 }
@@ -3028,6 +3145,7 @@ footer {
     color: #aaaaaa;
     display: inline-block;
     margin: 0 0 0 20px;
+    outline:none !important;
 }
 
 .chart-block-header .chart-trigger a.active {
@@ -3061,7 +3179,43 @@ footer {
     .chart-caption-idd {
         right: -35px;
     }
+    
+    .hidden-mobile {
+        display: none;
+    }
+    
+    .chart-col-sm-6 {
+        width: 16.66%;
+        padding: 0 5px;
+    }
+    
+    .program-chart .chart-subcol {
+        left: 5px;
+        right: 5px;
+    }
+    
+    .program-chart .chart-plot-captions {
+        left: 0;
+        right: 0;
+    }
+    
+    .program-chart-caption-1 {
+        left: -22px;
+    }
+    
+    .program-chart-caption-1 {
+        right: -22px;
+    }
 
+}
+
+@media screen and (max-width: 767px) {
+    
+    .program-chart .chart-cols {
+        left: 0;
+        right: 0;
+    }
+    
 }
 
 .footnote {
@@ -3172,6 +3326,50 @@ table.program-table p:first-child {
 
 table.program-table p:last-child {
     margin-bottom: 0;
+}
+
+.chart-no-padding {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+.col-chart-half {
+    width: 50%;
+    border-right: 1px solid #f1f1f1;
+    float: left;
+    padding: 72px 85px 72px 0;
+}
+
+.col-chart-half + .col-chart-half {
+    border-left: 1px solid #f1f1f1;
+    margin-left: -1px;
+    padding: 72px 0 72px 85px;
+    border-right: none;
+}
+
+.chart-sub-ttl {
+    font-size: 11px;
+    line-height: 20px;
+    text-transform: uppercase;
+    color: #aaaaaa;
+    margin: 0 0 29px 0;
+}
+
+.funds-chart-alt .chart-subrow {
+    height: 12px;
+    margin-bottom: 36px;
+}
+
+.funds-chart-alt .chart-row-label {
+    top: -4px;
+    line-height: 15px;
+}
+
+.funds-chart-alt .chart-subrow-val {
+    font-size: 14px;
+    line-height: 15px;
+    top: -2px;
+    text-transform: uppercase;
 }
 
 /* Forms */
@@ -3618,6 +3816,21 @@ table.program-table p:last-child {
     table.program-table td.mobile-inline + td.mobile-inline:before {
         content: " / ";
         display: inline-block;
+    }
+    
+    .col-chart-half {
+        width: 100%;
+        border-right: none;
+        float: none;
+        padding: 72px 0 72px 0;
+    }
+
+    .col-chart-half + .col-chart-half {
+        border-top: 1px solid #f1f1f1;
+        border-left: none;
+        margin-left: 0;
+        padding: 72px 0 72px 0;
+        border-right: none;
     }
     
     
