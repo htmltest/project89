@@ -210,7 +210,7 @@
                     <div class="content">
                         <h1>Калькулятор доходности</h1>
                         <div class="calc-form">
-                            <form action="files/calc-results.html" method="post">
+                            <form action="files/calc-results.json" method="post">
                                 <div class="calc-form-funds">
                                     <a href="#" class="calc-form-funds-add"></a>
                                     <div class="calc-form-funds-item">Золото 5 лет<a href="#" class="calc-form-funds-item-remove"></a></div>
@@ -267,7 +267,66 @@
                     </div>
                     <!-- content END -->
 
-                    <div class="calc-results"></div>
+                    <div class="calc-results">
+                        <div class="calc-results-top">
+                            <div class="content">
+                                <h2>Результаты расчета страховой выплаты по «Дожитию»</h2>
+                                <div class="calc-results-notice">в валюте договора, до налогообложения</div>
+                                <div class="calc-results-params">
+                                    <div class="calc-results-params-table">
+                                        <table>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Страховая Сумма</td>
+                                                    <td id="amount"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Доходность Базового Актива за период</td>
+                                                    <td id="profitableness"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ИДД без учета валютной переоценки  (% от страховой премии)</td>
+                                                    <td id="iddpercent"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ИДД без учета валютной переоценки</td>
+                                                    <td id="idd"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Сумма валютной переоценки для определения ИДД</td>
+                                                    <td id="summidd"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>ИДД с учетом валютной переоценки</td>
+                                                    <td id="iddcurrency"></td>
+                                                </tr>
+                                                <tr>
+                                                    <td><strong>Итого</strong></td>
+                                                    <td id="total"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="calc-results-params-chart">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="calc-results-chart">
+                            <div class="content">
+                                <h2>Результаты расчета страховой выплаты по «Дожитию»</h2>
+                                <div class="chart-calc-currency">Валютная переоценка <a href="#" class="chart-calc-currency-link"><span>Выкл</span><em></em><span>Вкл</span></a></div>
+                            </div>
+                            <div class="chart"></div>
+                        </div>
+
+                        <div class="content">
+                            <h2>Результаты расчета страховой выплаты по «Дожитию»</h2>
+                            <p>Вышеприведенный расчет приближен к фактическому, однако Страховщик не дает никаких заверений или гарантий относительно точности данной информации или достижения указанных значений, а также не принимает на себя дополнительные (иные) обязательства, помимо тех, что предусмотрены (будут предусмотрены) заключенным Страховщиком договором страхования.</p>
+                            <p>Инвестирование сопряжено с рядом рисков, которые могут привести к существенным отклонениям от прогнозируемых показателей. Кроме того, историческая динамика базового актива не определяет будущие результаты. ИДД может достигнуть как положительного значения, так и снизиться до нуля.</p>
+                        </div>
+                    </div>
 
                 </div>
             </div>

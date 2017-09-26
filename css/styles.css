@@ -535,6 +535,8 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 
 .calc-notice {font-size:12px; line-height:18px; border-left:2px solid #431a2d; padding:5px 0 7px 30px; margin:36px 0}
 
+.calc-results {position:absolute; left:-9999px; top:-9999px; width:99%}
+.calc-results.open {position:relative; left:auto; top:auto; width:auto}
 .calc-results-top {background:#fff; border-bottom:1px solid #f1f1f1}
 .calc-results-top .content {padding:11px 0 0 0}
 .calc-results-notice {margin-top:-24px}
@@ -545,3 +547,16 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 .calc-results-params-table td:nth-child(2) {font-weight:bold; color:#431a2d; text-align:right}
 .calc-results-params-table tr+tr td {border-top-color:#e6e6e6}
 .calc-results-params-chart {float:right; width:38.46%}
+
+.calc-results-chart {background:#fff; padding:71px 0 0 0}
+.calc-results-chart .content {padding-top:0; padding-bottom:0}
+.calc-results-chart h2 {margin:0}
+.calc-results-chart .content+.chart {margin:0}
+.chart-calc-currency {text-transform:uppercase; font:11px/24px FedraSansProBook, sans-serif; padding:28px 0 0 0}
+.chart-calc-currency-link {color:#aaa; text-decoration:none; margin:0 0 0 19px}
+.chart-calc-currency-link span:first-child {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
+.chart-calc-currency-link.active span {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
+.chart-calc-currency-link.active span:first-child {color:#aaa; font:11px/24px FedraSansProBook, sans-serif}
+.chart-calc-currency-link em {display:inline-block; vertical-align:middle; width:32px; height:16px; background:#431a2d; border-radius:8px; margin:0 10px; position:relative}
+.chart-calc-currency-link em:after {content:""; display:block; width:12px; height:12px; background:#fff; position:absolute; left:2px; top:2px; border-radius:50%; transition:all .3s ease}
+.chart-calc-currency-link.active em:after {left:18px}
