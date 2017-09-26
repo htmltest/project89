@@ -5,16 +5,37 @@
         <title>СмартПолис</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300&amp;text=₽" />
+        
+        <link rel="stylesheet" href="js/bootstrap-modal/css/bootstrap.modal.css">
+        
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
+        <link rel="stylesheet" href="js/dygraph/dygraph.css" />
 
         <script src="js/jquery-2.2.4.min.js"></script>
         <script src="js/jscrollpane/jquery.mousewheel.js"></script>
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
+        <script src="js/dygraph/dygraph.js"></script>
+        
+        <script src="js/bootstrap-modal/js/bootstrap-modal.min.js"></script>
+        
         <script src="js/plotly-latest.min.js"></script>
+        
         <script src="js/tools.js"></script>
+        
+        <!-- Animations -->
+
+        <script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+        <script src="js/greensock/easing/EasePack.min.js"></script>
+        <script src="js/greensock/TweenLite.min.js"></script>
+
+        <link rel="stylesheet" href="css/animations.css">
+       
+        <script src="js/animations.js"></script>
+       
+        <!-- Animations END -->
 
         <meta name="viewport" content="width=device-width" />
     </head>
@@ -457,30 +478,39 @@
                                     <td>BRAZIL, FEDERATIVE REPUBLIC OF (GOVERNMENT)</td>
                                     <td>4,76%</td>
                                 </tr>
+                                <tr>
                                     <td>ALLERGAN PLC</td>
                                     <td>4,69%</td>
                                 </tr>
+                                <tr>
                                     <td>MEXICO (UNITED MEXICAN STATES) (GOVERNMENT)</td>
                                     <td>3,34%</td>
                                 </tr>
+                                <tr>
                                     <td>BRAZIL, FEDERATIVE REPUBLIC OF (GOVERNMENT)</td>
                                     <td>3,26%</td>
                                 </tr>
+                                <tr>
                                     <td>TEVA PHARMACEUTICAL INDUSTRIES LTD</td>
                                     <td>3,19%</td>
                                 </tr>
+                                <tr>
                                     <td>ENTERPRISE INNS PLC</td>
                                     <td>3,19%</td>
                                 </tr>
+                                <tr>
                                     <td>MEXICO (UNITED MEXICAN STATES) (GOVERNMENT)</td>
                                     <td>1,79%</td>
                                 </tr>
+                                <tr>
                                     <td>MEXICO (UNITED MEXICAN STATES) (GOVERNMENT)</td>
                                     <td>1,71%</td>
                                 </tr>
+                                <tr>
                                     <td>NATIONAL WESTMINSTER BANK PLC</td>
                                     <td>1,20%</td>
                                 </tr>
+                                <tr>
                                     <td>ISHARES $ HIGHYIELD CORP BOND UCITS ETF USD (DIST)</td>
                                     <td>0,88%</td>
                                 </tr>
@@ -489,19 +519,186 @@
                     </div>
                     <!-- content END -->
 
-                    <div class="chart">
-                        <div id="chart3" class="chart-content" style="height:650px"></div>
-                        <script type="text/javascript">
-                            var data = [
-                                {
-                                    x: ['N/A', 'BB', 'A', 'BBB+', 'BBB', 'BBB-', 'BB+', 'BB-', 'B+', 'B', 'A-', 'NR', 'B-', 'CCC'],
-                                    y: [40.02, 13.82, 6.5, 5.26, 4.54, 4.51, 3.94, 3.64, 3.21, 2.62, 2.1, 2.06, 1.99, 1.82],
-                                    type: 'bar'
-                                }
-                            ];
+                    <div class="chart chart-alt chart-hor funds-chart">
 
-                            Plotly.newPlot('chart3', data);
-                       </script>
+                        <div class="h3">Распределение по кредитному рейтингу</div>
+
+                        <div class="chart-graph">
+                           
+                            <div class="chart-scale chart-scale-hor clearfix">
+                                <div class="chart-scale-item">0</div>
+                                <div class="chart-scale-item">7,34</div>
+                                <div class="chart-scale-item">14,68</div>
+                                <div class="chart-scale-item">22,01</div>
+                                <div class="chart-scale-item">29,35</div>
+                                <div class="chart-scale-item">36,69</div>
+                                <div class="chart-scale-item">44,03</div>
+                            </div>
+                            
+                            <div class="chart-rows clearifx">
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        N/A
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:90.89%">
+                                        <div class="chart-subrow-val">40,02%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BB
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:31.39%">
+                                        <div class="chart-subrow-val">13,82%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        A
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:14.76%">
+                                        <div class="chart-subrow-val">6,50%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BBB+
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:11.95%">
+                                        <div class="chart-subrow-val">5,26%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BBB
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:10.31%">
+                                        <div class="chart-subrow-val">4,54%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BBB-
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:10.24%">
+                                        <div class="chart-subrow-val">4,51%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BB+
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:8.95%">
+                                        <div class="chart-subrow-val">3,94%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        BB-
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:8.27%">
+                                        <div class="chart-subrow-val">3,64%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        B+
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:7.29%">
+                                        <div class="chart-subrow-val">3,21%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        B
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:5.95%">
+                                        <div class="chart-subrow-val">2,62%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        A-
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:4.77%">
+                                        <div class="chart-subrow-val">2,10%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        NR
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:4.68%">
+                                        <div class="chart-subrow-val">2,06%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        B-
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:4.52%">
+                                        <div class="chart-subrow-val">1,99%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        CCC
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:4.13%">
+                                        <div class="chart-subrow-val">1,82%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        AAA
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:3.09%">
+                                        <div class="chart-subrow-val">1,36%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        CCC+
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:1.86%">
+                                        <div class="chart-subrow-val">0,82%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        D
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:0.86%">
+                                        <div class="chart-subrow-val">0,38%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        A+
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:0.84%">
+                                        <div class="chart-subrow-val">0,37%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        AA-
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:0.75%">
+                                        <div class="chart-subrow-val">0,33%</div>
+                                    </div>
+                                </div>
+                                <div class="chart-row">
+                                    <div class="chart-row-label">
+                                        AA
+                                    </div>
+                                    <div class="chart-subrow chart-color-2" style="width:0.70%">
+                                        <div class="chart-subrow-val">0,31%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                 </div>

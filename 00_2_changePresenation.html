@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="utf-8" />
+        <title>СмартПолис</title>
+
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300&amp;text=₽" />
+        
+        <link rel="stylesheet" href="js/bootstrap-modal/css/bootstrap.modal.css">
+        
+        <link rel="stylesheet" href="css/styles.css" />
+        <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
+        <link rel="stylesheet" href="js/slick/slick.css" />
+        <link rel="stylesheet" href="js/dygraph/dygraph.css" />
+
+        <script src="js/jquery-2.2.4.min.js"></script>
+        <script src="js/jscrollpane/jquery.mousewheel.js"></script>
+        <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
+        <script src="js/slick/slick.min.js"></script>
+        <script src="js/dygraph/dygraph.js"></script>
+        
+        <script src="js/bootstrap-modal/js/bootstrap-modal.min.js"></script>
+        
+        <script src="js/plotly-latest.min.js"></script>
+        
+        <script src="js/tools.js"></script>
+        
+        <!-- Animations -->
+
+        <script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+        <script src="js/greensock/easing/EasePack.min.js"></script>
+        <script src="js/greensock/TweenLite.min.js"></script>
+
+        <link rel="stylesheet" href="css/animations.css">
+       
+        <script src="js/animations.js"></script>
+       
+        <!-- Animations END -->
+
+        <meta name="viewport" content="width=device-width" />
+    </head>
+
+    <body>
+
+        <header>
+            <div class="logo"><a href="#"><img src="images/logo.svg" alt="" width="128" height="31" /></a></div>
+
+            <div class="header-slides">
+                <a href="#" class="header-slides-link"><span><img src="images/slides.png" alt="" data-animate="images/slides.gif" width="50" height="30" /></span>Слайды</a>
+                <div class="header-slides-list">
+                    <div class="header-slides-list-content">
+                        <div class="header-slides-list-inner">
+                            <div class="header-slides-list-item active">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-01.jpg" alt="" /><img src="files/slide-01-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Главная страница</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Принципы работы Смартполиса</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Страховая компонента</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-04.jpg" alt="" /><img src="files/slide-04-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Доступность для инвесторов</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Параметры продукта</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Ликвидность</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-04.jpg" alt="" /><img src="files/slide-04-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Опции</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-05.jpg" alt="" /><img src="files/slide-05-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Фиксация</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Выплата ДИД</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Смена фонда</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Дополнительный взнос</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-06.jpg" alt="" /><img src="files/slide-06-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Пролонгация</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">График траншей</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Фонды СмартПолис</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Данные по фондам</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-04.jpg" alt="" /><img src="files/slide-04-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Калькулятор доходности</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-05-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Результаты расчёта</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Описание общего принципа работы</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Коэффициент участия</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-02.jpg" alt="" /><img src="files/slide-02-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Коэффициент участия по&nbsp;опционным продуктам</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-03.jpg" alt="" /><img src="files/slide-03-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Инвестиционные инструменты. Опционы</div>
+                                </a>
+                            </div>
+                            <div class="header-slides-list-item">
+                                <a href="#" class="header-slides-list-item-inner">
+                                    <div class="header-slides-list-item-preview"><img src="files/slide-04.jpg" alt="" /><img src="files/slide-04-mobile.jpg" alt="" /></div>
+                                    <div class="header-slides-list-item-title">Калькулятор доходности</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-stacks">
+                <a href="#" class="header-stacks-link"><span><img src="images/stacks.png" alt="" data-animate="images/stacks.gif" width="50" height="30" /></span>Стеки</a>
+                <div class="header-stacks-list">
+                    <div class="header-stacks-item">
+                        <a href="#" class="header-stacks-item-link">Калькулятор<br /> потенциальной<br /> доходности</a>
+                    </div>
+                    <div class="header-stacks-item">
+                        <a href="#" class="header-stacks-item-link">Информация<br /> о программе</a>
+                        <div class="header-stacks-sub">
+                            <ul>
+                                <li><a href="#">Суть программы</a></li>
+                                <li><a href="#">Принцип работы СмартПолиса</a></li>
+                                <li><a href="#">Преимущества продукта перед аналогичными продуктами</a></li>
+                                <li><a href="#">Параметры программы</a></li>
+                                <li><a href="#">Страховая компонента</a></li>
+                                <li><a href="#">Доступность для инвесторов</a></li>
+                                <li><a href="#">Ликвидность</a></li>
+                                <li><a href="#">Опции</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="header-stacks-item">
+                        <a href="#" class="header-stacks-item-link">Информация<br /> о фондах</a>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="wrapper-inner">
+                <div class="wrapper-content">
+
+                    <!-- main -->
+                    <div class="main">
+                        <div class="main-content">
+                            <div class="main-title">СмартПолис</div>
+                            <div class="main-subtitle">Инвестиционное страхование жизни</div>
+                            <div class="main-menu">
+                                <div class="main-menu-item main-menu-item-1">
+                                    <a href="#" class="main-menu-item-link"><span>Калькулятор<br /> потенциальной<br /> доходности</span></a>
+                                </div>
+                                <div class="main-menu-item main-menu-item-2">
+                                    <a href="#" class="main-menu-item-link"><span>Информация<br /> о программе</span></a>
+                                    <div class="main-menu-content">
+                                        <div class="main-menu-submenu">
+                                            <ul>
+                                                <li><a href="02_0_about.html" class="ajax-page">Суть программы</a></li>
+                                                <li><a href="02_1_principles.html" class="ajax-page">Принцип работы СмартПолиса</a></li>
+                                                <li><a href="02_2_advantage.html" class="ajax-page">Преимущества продукта перед аналогичными продуктами</a></li>
+                                                <li><a href="02_4_parameters.html" class="ajax-page">Параметры программы</a></li>
+                                            </ul>
+                                            <ul>
+                                                <li><a href="02_2_1_insurance_component.html" class="ajax-page">Страховая компонента</a></li>
+                                                <li><a href="02_2_3_aviability.html" class="ajax-page">Доступность для инвесторов</a></li>
+                                                <li><a href="02_5_liquidity.html" class="ajax-page">Ликвидность</a></li>
+                                                <li><a href="02_6_options.html" class="ajax-page">Опции</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="main-menu-item main-menu-item-3">
+                                    <a href="03_1_funds.html" class="main-menu-item-link ajax-page"><span>Информация<br /> о фондах</span></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- main END -->
+
+                </div>
+            </div>
+        </div>
+        <!-- wrapper END -->
+
+        <footer>
+            <div class="footer-links">
+                <div class="footer-links-center">
+                    <a href="#" class="footer-link-charts"><img src="images/footer-charts.png" alt="" data-animate="images/footer-charts.gif" width="42" height="42" /></a>
+                    <a href="#" class="footer-link-download"><img src="images/footer-download.png" alt="" data-animate="images/footer-download.gif" width="42" height="42" /></a>
+                    <a href="#" class="footer-link-info"><img src="images/footer-info.png" alt="" data-animate="images/footer-info.gif" width="42" height="42" /></a>
+                </div>
+            </div>
+
+            <div class="license">Генеральная лицензия на осуществление банковских операций от 11 августа 2015 года. Регистрационный номер — 1481</div>
+        </footer>
+
+        <div class="pageload-overlay"><img src="images/blank.gif" alt="" width="406" height="142" data-animate="images/preloader.gif" /></div>
+        
+        <!-- Modal windows -->
+        
+        <div class="modal fade select-modal" id="selectModal" tabindex="-1">
+            <div class="va-wrapper">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-ttl">Выбор презентации</div>
+                        <div class="pres-select">
+                            <a href="#" class="active">Смартполис</a>
+                            <a href="#">Смартполис купонный</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script>
+            
+            $(document).ready(function () {
+               
+                $("#selectModal").modal("show");
+                
+            });
+            
+        </script>
+        
+        <!-- Modal windows END -->
+
+    </body>
+</html>

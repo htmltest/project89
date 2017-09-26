@@ -1,0 +1,5 @@
+.did-chart,
+.funds-chart,
+.liq-chart {
+    opacity: 0;
+}

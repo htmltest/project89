@@ -5,6 +5,9 @@
         <title>СмартПолис</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300&amp;text=₽" />
+        
+        <link rel="stylesheet" href="js/bootstrap-modal/css/bootstrap.modal.css">
+        
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
@@ -15,7 +18,24 @@
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
         <script src="js/dygraph/dygraph.js"></script>
+        
+        <script src="js/bootstrap-modal/js/bootstrap-modal.min.js"></script>
+        
+        <script src="js/plotly-latest.min.js"></script>
+        
         <script src="js/tools.js"></script>
+        
+        <!-- Animations -->
+
+        <script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+        <script src="js/greensock/easing/EasePack.min.js"></script>
+        <script src="js/greensock/TweenLite.min.js"></script>
+
+        <link rel="stylesheet" href="css/animations.css">
+       
+        <script src="js/animations.js"></script>
+       
+        <!-- Animations END -->
 
         <meta name="viewport" content="width=device-width" />
     </head>
@@ -218,10 +238,97 @@
                                 <blockquote><strong>ДИД –</strong> часть ИДД, доступная для Клиента в текущий момент времени. Величина ДИД постепенно прирастает до суммы ИДД, за счет прироста ГФ до 100% от Страховой Суммы.</blockquote>
                             </div>
                         </div>
-                        <p>ИДД и ДИД формируются за счет положительной динамики Базового Актива (с учетом Коэффициента участия, характерного для каждого из Базовых Активов)</p>
+                        
 
-                        <div class="chart">
-                            <img src="files/chart-2.png" alt="" style="display:block; margin:0 auto; max-width:100%" />
+                        <div class="chart chart-alt did-chart">
+                            
+                            <div class="h3">Зависимость величины ДИД от периода действия программы</div>
+
+                            <div class="chart-graph">
+                                <div class="chart-grid">
+                                    <div class="chart-grid-line chart-grid-line-5"></div>
+                                    <div class="chart-grid-line chart-grid-line-5"></div>
+                                    <div class="chart-grid-line chart-grid-line-5"></div>
+                                    <div class="chart-grid-line chart-grid-line-5"></div>
+                                    <div class="chart-grid-line chart-grid-line-5"></div>
+                                </div>
+                                <div class="chart-cols clearifx">
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:60%"></div>
+                                    </div>
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:83.5%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:63.6%"></div>
+                                    </div>
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:87%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:67.5%"></div>
+                                    </div>
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:91%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:71.3%"></div>
+                                    </div>
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:95%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:75.5%"></div>
+                                    </div>
+                                    <div class="chart-col chart-col-6" style="height: 100%;">
+                                        <div class="chart-subcol did-subcol-1 chart-color-1" style="height:80%"></div>
+                                        <div class="chart-subcol did-subcol-2 chart-color-2" style="height:100%"></div>
+                                        <div class="chart-subcol did-subcol-3 chart-color-3" style="height:80%"></div>
+                                    </div>
+                                </div>
+                                <div class="chart-plot-captions">
+                                    <div class="chart-plot-captions-line" style="bottom:80%"></div>
+                                    <div class="chart-plot-captions-line" style="bottom:100%"></div>
+                                    <div class="chart-plot-captions-item chart-caption-did">
+                                        <div class="chart-did-bracket"></div>
+                                        <span>ДИД</span>
+                                    </div>
+                                    <div class="chart-plot-captions-item chart-caption-idd">
+                                        <div class="chart-did-arrow"></div>
+                                        <span>ИДД</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="chart-text">
+                                <div class="chart-scale clearfix">
+                                    <div class="chart-scale-item chart-scale-item-6">1</div>
+                                    <div class="chart-scale-item chart-scale-item-6">2</div>
+                                    <div class="chart-scale-item chart-scale-item-6">3</div>
+                                    <div class="chart-scale-item chart-scale-item-6">4</div>
+                                    <div class="chart-scale-item chart-scale-item-6">5</div>
+                                    <div class="chart-scale-item chart-scale-item-6">6</div>
+                                </div>
+                                <div class="chart-caption-x">
+                                    Год действия программы
+                                </div>
+                                <div class="chart-legend">
+                                    <div class="chart-legend-item">
+                                        <div class="chart-legend-color chart-color-1"></div>
+                                        Резерв
+                                    </div>
+                                    <div class="chart-legend-item">
+                                        <div class="chart-legend-color chart-color-3"></div>
+                                        Гарантийный Фонд
+                                    </div>
+                                    <div class="chart-legend-item">
+                                        <div class="chart-legend-color chart-color-2"></div>
+                                        Рисковой Фонд
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="chart-descr">
+                                <p>ИДД и ДИД формируются за счет положительной динамики Базового Актива (с учетом Коэффициента участия, характерного для каждого из Базовых Активов)</p>
+                            </div>
+
                         </div>
 
                     </div>

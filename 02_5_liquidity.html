@@ -5,6 +5,9 @@
         <title>СмартПолис</title>
 
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300&amp;text=₽" />
+        
+        <link rel="stylesheet" href="js/bootstrap-modal/css/bootstrap.modal.css">
+        
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
@@ -15,7 +18,24 @@
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
         <script src="js/dygraph/dygraph.js"></script>
+        
+        <script src="js/bootstrap-modal/js/bootstrap-modal.min.js"></script>
+        
+        <script src="js/plotly-latest.min.js"></script>
+        
         <script src="js/tools.js"></script>
+        
+        <!-- Animations -->
+
+        <script src="js/greensock/plugins/CSSPlugin.min.js"></script>
+        <script src="js/greensock/easing/EasePack.min.js"></script>
+        <script src="js/greensock/TweenLite.min.js"></script>
+
+        <link rel="stylesheet" href="css/animations.css">
+       
+        <script src="js/animations.js"></script>
+       
+        <!-- Animations END -->
 
         <meta name="viewport" content="width=device-width" />
     </head>
@@ -220,16 +240,197 @@
 
                             <!-- tab -->
                             <div class="tab active">
-                                <div class="chart">
-                                    <img src="files/chart-1.png" alt="" style="display:block; margin:0 auto; max-width:100%" />
+                                <div class="chart chart-alt liq-chart">
+                            
+                                    <div class="chart-block-header clearfix">
+                                        <div class="h3">График ликвидности по стандартной гарантии</div>
+                                        <div class="chart-trigger">
+                                            <a href="#" data-trigger-val="rub" class="active"><span>Рубль</span></a>
+                                            <a href="#" data-trigger-val="usd"><span>Доллар</span></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="chart-graph">
+                                        <div class="chart-grid">
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                        </div>
+                                        <div class="chart-cols clearifx">
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 71.29%;" data-val-rub="71.29%" data-val-usd="84.19%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 62.27%;" data-val-rub="62.27%" data-val-usd="75.99%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 50.83%;" data-val-rub="50.83%" data-val-usd="70.89%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 76.28%;" data-val-rub="76.28%" data-val-usd="87.14%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 66.63%;" data-val-rub="66.63%" data-val-usd="79.03%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 54.39%;" data-val-rub="54.39%" data-val-usd="73.37%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 81.62%;" data-val-rub="81.62%" data-val-usd="90.19%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 71.29%;" data-val-rub="71.29%" data-val-usd="82.19%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 58.2%;" data-val-rub="58.2%" data-val-usd="75.94%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 87.33%;" data-val-rub="87.33%" data-val-usd="93.34%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 76.28%;" data-val-rub="76.28%" data-val-usd="85.48%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 62.27%;" data-val-rub="62.27%" data-val-usd="78.60%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 93.45%;" data-val-rub="93.45%" data-val-usd="96.61%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 81.62%;" data-val-rub="81.62%" data-val-usd="88.90%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 66.63%;" data-val-rub="66.63%" data-val-usd="81.35%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 87.34%;" data-val-rub="87.34%" data-val-usd="92.45%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 71.29%;" data-val-rub="71.29%" data-val-usd="84.20%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 93.45%;" data-val-rub="93.45%" data-val-usd="96.15%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 76.28%;" data-val-rub="76.28%" data-val-usd="87.14%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 81.62%;" data-val-rub="81.62%" data-val-usd="90.19%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 87.34%;" data-val-rub="87.34%" data-val-usd="93.35%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-1" style="height: 93.45%;" data-val-rub="93.45%" data-val-usd="96.62%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-text">
+                                        <div class="chart-scale clearfix">
+                                            <div class="chart-scale-item chart-scale-item-10">1</div>
+                                            <div class="chart-scale-item chart-scale-item-10">2</div>
+                                            <div class="chart-scale-item chart-scale-item-10">3</div>
+                                            <div class="chart-scale-item chart-scale-item-10">4</div>
+                                            <div class="chart-scale-item chart-scale-item-10">5</div>
+                                            <div class="chart-scale-item chart-scale-item-10">6</div>
+                                            <div class="chart-scale-item chart-scale-item-10">7</div>
+                                            <div class="chart-scale-item chart-scale-item-10">8</div>
+                                            <div class="chart-scale-item chart-scale-item-10">9</div>
+                                            <div class="chart-scale-item chart-scale-item-10">10</div>
+                                        </div>
+                                        <div class="chart-caption-x">
+                                            Год действия программы
+                                        </div>
+                                        <div class="chart-caption-y">
+                                            100%
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item">
+                                                <div class="chart-legend-color chart-color-2"></div>
+                                                5 лет
+                                            </div>
+                                            <div class="chart-legend-item">
+                                                <div class="chart-legend-color chart-color-3"></div>
+                                                7 лет
+                                            </div>
+                                            <div class="chart-legend-item">
+                                                <div class="chart-legend-color chart-color-1"></div>
+                                                10 лет
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <!-- tab END -->
 
                             <!-- tab -->
                             <div class="tab">
-                                <div class="chart">
-                                    <img src="files/chart-1.png" alt="" style="display:block; margin:0 auto; max-width:100%" />
+                                <div class="chart chart-alt liq-chart">
+                            
+                                    <div class="chart-block-header clearfix">
+                                        <div class="h3">График ликвидности по стандартной гарантии</div>
+                                        <div class="chart-trigger">
+                                            <a href="#" data-trigger-val="rub" class="active"><span>Рубль</span></a>
+                                            <a href="#" data-trigger-val="usd"><span>Доллар</span></a>
+                                        </div>
+                                    </div>
+
+                                    <div class="chart-graph">
+                                        <div class="chart-grid">
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                            <div class="chart-grid-line chart-grid-line-4"></div>
+                                        </div>
+                                        <div class="chart-cols clearifx">
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 62.27%;" data-val-rub="62.27%" data-val-usd="75.99%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 50.83%;" data-val-rub="50.83%" data-val-usd="70.89%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 66.63%;" data-val-rub="66.63%" data-val-usd="79.03%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 54.39%;" data-val-rub="54.39%" data-val-usd="73.37%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 71.29%;" data-val-rub="71.29%" data-val-usd="82.19%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 58.20%;" data-val-rub="58.20%" data-val-usd="75.94%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 76.28%;" data-val-rub="76.28%" data-val-usd="85.48%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 62.27%;" data-val-rub="62.27%" data-val-usd="78.60%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-1 chart-color-2" style="height: 81.62%;" data-val-rub="81.62%" data-val-usd="88.90%"></div>
+                                                <div class="chart-subcol liq-subcol-2 chart-color-3" style="height: 66.63%;" data-val-rub="66.63%" data-val-usd="81.35%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-2 chart-color-2" style="height: 87.34%;" data-val-rub="87.34%" data-val-usd="92.45%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-3" style="height: 71.29%;" data-val-rub="71.29%" data-val-usd="84.20%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-2 chart-color-2" style="height: 93.45%;" data-val-rub="93.45%" data-val-usd="96.15%"></div>
+                                                <div class="chart-subcol liq-subcol-3 chart-color-3" style="height: 76.28%;" data-val-rub="76.28%" data-val-usd="87.14%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-3" style="height: 81.62%;" data-val-rub="81.62%" data-val-usd="90.19%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-3" style="height: 87.34%;" data-val-rub="87.34%" data-val-usd="93.35%"></div>
+                                            </div>
+                                            <div class="chart-col chart-col-10" style="height: 100%;">
+                                                <div class="chart-subcol liq-subcol-3 chart-color-3" style="height: 93.45%;" data-val-rub="93.45%" data-val-usd="96.62%"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="chart-text">
+                                        <div class="chart-scale clearfix">
+                                            <div class="chart-scale-item chart-scale-item-10">1</div>
+                                            <div class="chart-scale-item chart-scale-item-10">2</div>
+                                            <div class="chart-scale-item chart-scale-item-10">3</div>
+                                            <div class="chart-scale-item chart-scale-item-10">4</div>
+                                            <div class="chart-scale-item chart-scale-item-10">5</div>
+                                            <div class="chart-scale-item chart-scale-item-10">6</div>
+                                            <div class="chart-scale-item chart-scale-item-10">7</div>
+                                            <div class="chart-scale-item chart-scale-item-10">8</div>
+                                            <div class="chart-scale-item chart-scale-item-10">9</div>
+                                            <div class="chart-scale-item chart-scale-item-10">10</div>
+                                        </div>
+                                        <div class="chart-caption-x">
+                                            Год действия программы
+                                        </div>
+                                        <div class="chart-caption-y">
+                                            100%
+                                        </div>
+                                        <div class="chart-legend">
+                                            <div class="chart-legend-item">
+                                                <div class="chart-legend-color chart-color-2"></div>
+                                                7 лет
+                                            </div>
+                                            <div class="chart-legend-item">
+                                                <div class="chart-legend-color chart-color-3"></div>
+                                                10 лет
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                             </div>
                             <!-- tab END -->

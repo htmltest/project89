@@ -1,4 +1,88 @@
 $(document).ready(function() {
+    
+    // Charts
+    
+    $("body").on("click", ".chart-trigger a", function() {
+        
+        $(this).closest(".chart-trigger").find("a").removeClass("active");
+        $(this).addClass("active");
+        
+        var triggerVal = $(this).data("trigger-val");
+        
+        $(this).closest(".chart").find(".chart-subcol").each(function() {
+            
+            $(this).animate({
+                height: $(this).attr("data-val-" + triggerVal)
+            },1000)
+            
+        });
+        
+        return false;
+        
+    })
+    
+    // Charts END
+    
+    // Modal windows
+    
+    $(".modal-slider").css({
+        height: 200,
+        opacity: 0
+    });
+    
+        
+    $(".modal-prev").click(function () {
+        $(this).closest(".modal").find(".modal-slider").slick("slickPrev");
+    });
+
+    $(".modal-next").click(function () {
+        $(this).closest(".modal").find(".modal-slider").slick("slickNext");
+    });
+        
+    
+    $(".modal").on("shown.bs.modal", function () {
+        if ($(this).find(".modal-slider").length) {
+            
+            $(".modal-slider").on("afterChange", function (event, slick, currentSlide) {
+                adjustModal();
+            });
+            
+            $(this).find(".modal-slider").slick({
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: true,
+                adaptiveHeight: true
+            }).css({
+                height: "auto",
+                opacity: 1
+            });
+            
+        }
+        
+        adjustModal();
+        
+    });
+    
+    $(window).resize(function () {
+        
+        adjustModal();
+        
+    });
+    
+    function adjustModal() {
+        
+        if ($(window).height() < $(".modal.in .modal-content").height() + 60) {
+            $(".modal.in").addClass("no-flex");
+        } else {
+            $(".modal.in").removeClass("no-flex");
+        }
+        
+    }
+    
+    
+    // Modal windows END
+    
     createSlides();
 
     resizeContent();
@@ -94,12 +178,16 @@ $(document).ready(function() {
     });
 
     $('body').on('click', '.tabs-menu ul li a', function(e) {
-        var curLi = $(this).parent();
+        var curLi = $(this).closest("li");
         if (!curLi.hasClass('active')) {
-            var curTabs = curLi.parents().filter('.tabs');
+            var curTabs = curLi.closest('.tabs');
             var curIndex = curTabs.find('.tabs-menu ul li').index(curLi);
             curTabs.find('.tabs-menu ul li.active').removeClass('active');
             curLi.addClass('active');
+            
+            curTabs.find(".tab").hide();
+            curTabs.find(".tab").eq(curIndex).fadeIn(250);
+            
         }
         e.preventDefault();
     });
@@ -252,12 +340,20 @@ function createSlides() {
                 $('.wrapper').append('<div class="wrapper-inner"><div class="wrapper-content"></div></div>');
             }
         });
+
+        $(".pager-alt").slick({
+            slidesToScroll: 3,
+            variableWidth: true,
+            infinite: false,
+            swipe: false
+        });
+
         $('.wrapper').slick({
             infinite: false,
             slidesToShow: 1,
             slidesToScroll: 1,
             initialSlide: curIndex,
-            arrows: false,
+            arrows: true,
             dots: false,
         }).on('beforeChange', function(event, slick, currentSlide, nextSlide) {
             var curSlide = $('.wrapper-inner').eq(nextSlide);
@@ -275,8 +371,8 @@ function createSlides() {
                         history.pushState(obj, obj.Page, obj.Url);
 
                         var newHTML = $('<div></div>').html(response);
-                        $('header').html(newHTML.find('header').html());
-                        $('footer').html(newHTML.find('footer').html());
+                        //$('header').html(newHTML.find('header').html());
+                        //$('footer').html(newHTML.find('footer').html());
 
                         newHTML.remove();
 
@@ -289,9 +385,9 @@ function createSlides() {
                                     apiScroll.destroy();
                                 }
                                 curSlide.find('.wrapper-content').prepend(newHTML.find('.wrapper-content').html());
-                                curSlide.find('.wrapper-content').jScrollPane({
-                                    autoReinitialise: true
-                                });
+//                                curSlide.find('.wrapper-content').jScrollPane({
+//                                    autoReinitialise: true
+//                                });
                                 curSlide.addClass('loaded');
                                 curSlide.find('.pageload-overlay').remove();
                                 afterLoadContent();
@@ -302,9 +398,9 @@ function createSlides() {
                                 apiScroll.destroy();
                             }
                             curSlide.find('.wrapper-content').prepend(newHTML.find('.wrapper-content').html());
-                            curSlide.find('.wrapper-content').jScrollPane({
-                                autoReinitialise: true
-                            });
+//                            curSlide.find('.wrapper-content').jScrollPane({
+//                                autoReinitialise: true
+//                            });
                             curSlide.addClass('loaded');
                             curSlide.find('.pageload-overlay').remove();
                             afterLoadContent();
@@ -316,6 +412,9 @@ function createSlides() {
 
             $('.pager a.active').removeClass('active');
             $('.pager a').eq(nextSlide).addClass('active');
+
+            $(".pager-alt").slick("slickGoTo",nextSlide);
+
         });
     }
 }
