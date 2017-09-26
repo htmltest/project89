@@ -335,7 +335,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
     .tools-text {margin-left:-35px; margin-right:-35px; padding-left:35px; padding-right:35px}
 }
 
-.funds {position:relative; border-left:1px solid #aaa; border-bottom:1px solid #aaa; width:779px; height:383px; margin:69px 0 0 0}
+.funds {position:relative; border-left:1px solid #aaa; border-bottom:1px solid #aaa; width:820px; height:384px; margin:69px auto 0 auto}
 .funds-title-1 {position:absolute; left:-51px; top:-24px; font-size:11px; color:#aaa; text-transform:uppercase; -moz-transform-origin:right bottom; -ms-transform-origin:right bottom; -webkit-transform-origin:right bottom; -o-transform-origin:right bottom; transform-origin:right bottom; -moz-transform:rotate(-90deg); -ms-transform:rotate(-90deg); -webkit-transform:rotate(-90deg); -o-transform:rotate(-90deg); transform:rotate(-90deg)}
 .funds-title-2 {position:absolute; right:0; bottom:1px; font-size:11px; color:#aaa; text-transform:uppercase}
 .funds-line {width:780px; height:360px; position:absolute; left:-1px; bottom:-1px; background:url(../images/funds-line.png)}
@@ -345,7 +345,9 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .funds-item-3 {left:357px; top:37px}
 .funds-item-4 {left:517px; top:5px}
 .funds-item-5 {left:677px; top:-8px}
-.funds-item-link {position:absolute; left:0; top:0; width:64px; height:64px; text-align:center; cursor:pointer; opacity:0; transition:opacity .2s ease}
+.funds-item-link {position:absolute; left:0; top:0; width:64px; height:64px; text-align:center; cursor:pointer; opacity:0; transition:opacity .2s ease; z-index:2}
+.funds-item.active .funds-item-link,
+.funds-item-link:hover {z-index:1}
 .funds-item-1 .funds-item-link {transition:opacity .2s ease}
 .funds-item-2 .funds-item-link {transition:opacity .2s ease .2s}
 .funds-item-3 .funds-item-link {transition:opacity .2s ease .4s}
@@ -353,7 +355,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .funds-item-5 .funds-item-link {transition:opacity .2s ease .8s}
 .funds-item.show .funds-item-link {opacity:1}
 .funds-item-icon {width:64px; height:64px; background:#fff; line-height:64px; border-radius:50%; transition:background-color .2s ease}
-.funds-item-icon img {vertical-align:middle}
+.funds-item-icon img {vertical-align:middle; margin-top:-2px}
 .funds-item-icon img:nth-child(2) {position:absolute; left:-9999px; top:-9999px}
 .funds-item-link:hover .funds-item-icon,
 .funds-item.active .funds-item-icon {background:#431a2d}
@@ -396,8 +398,8 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .funds-item-window-next {display:block; width:9px; height:15px; background:url(../images/funds-item-window-next.png); position:absolute; left:50px; top:17px}
 .funds-item-window-close {display:block; width:15px; height:15px; background:url(../images/funds-item-window-close.png); position:absolute; right:30px; top:17px}
 
-@media screen and (min-width:1280px) {
-    .funds {height:504px; width:970px}
+@media screen and (min-width:1281px) {
+    .funds {height:504px; width:1020px}
     .funds-line {width:970px; height:449px; background:url(../images/funds-line-desktop.png)}
     .funds-item {height:81px}
     .funds-item-1 {left:45px; top:282px}
