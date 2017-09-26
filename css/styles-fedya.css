@@ -1711,8 +1711,14 @@ header {
 
 }
 
-.funds {position:relative; border-left:1px solid #aaa; border-bottom:1px solid #aaa; width:820px; height:384px; margin:69px auto 0 auto}
-
+.funds {
+    position: relative;
+    border-left: 1px solid #aaa;
+    border-bottom: 1px solid #aaa;
+    width: 779px;
+    height: 383px;
+    margin: 69px 0 0 0
+}
 
 .funds-title-1 {
     position: absolute;
@@ -1781,10 +1787,17 @@ header {
     top: -8px
 }
 
-.funds-item-link {position:absolute; left:0; top:0; width:64px; height:64px; text-align:center; cursor:pointer; opacity:0; transition:opacity .2s ease; z-index:2}
-
-.funds-item.active .funds-item-link,
-.funds-item-link:hover {z-index:1}
+.funds-item-link {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 64px;
+    height: 64px;
+    text-align: center;
+    cursor: pointer;
+    opacity: 0;
+    transition: opacity .2s ease
+}
 
 .funds-item-1 .funds-item-link {
     transition: opacity .2s ease
@@ -1819,7 +1832,9 @@ header {
     transition: background-color .2s ease
 }
 
-.funds-item-icon img {vertical-align:middle; margin-top:-2px}
+.funds-item-icon img {
+    vertical-align: middle
+}
 
 .funds-item-icon img:nth-child(2) {
     position: absolute;
@@ -2000,8 +2015,11 @@ header {
     top: 17px
 }
 
-@media screen and (min-width:1281px) {
-     .funds {height:504px; width:1020px}
+@media screen and (min-width:1280px) {
+    .funds {
+        height: 504px;
+        width: 970px
+    }
 
     .funds-line {
         width: 970px;
@@ -2567,79 +2585,6 @@ footer {
     position: absolute;
     z-index: auto
 }
-
-.wrapper-content .pageload-overlay {position:absolute; z-index:auto}
-
-.btn {display:block; border-radius:3px; background:#431a2d; margin:0; padding:0; outline:none; width:100%; border:none; text-decoration:none; height:48px; box-sizing:border-box; color:#fff; text-align:center; text-transform:uppercase; font:11px/48px FedraSansProBook, sans-serif; -webkit-appearance:none; cursor:pointer; transition:all 0.25s ease-out 0s}
-.btn:hover {background:#aaaaaa; color:#fff}
-.btn:active {background:#707070; color:#fff}
-
-.form-input {position:relative; background:#f7f7f7}
-.form-input-date:before {content:""; display:block; position:absolute; right:15px; top:23px; width:15px; height:16px; background:url(../images/form-input-date.png)}
-.form-input span {position:absolute; left:16px; top:20px; text-transform:uppercase; color:#707070; font:9px/20px FedraSansProBook, sans-serif; transition:all .3s ease}
-.form-input.focus span {font-size:10px; line-height:15px; top:10px}
-.form-input input {position:relative; border:none; font:bold 15px/24px FedraSansPro, sans-serif; color:#431a2d; vertical-align:top; margin:0; padding:21px 19px 7px 19px; width:100%; height:60px; box-sizing:border-box; outline:none; border-radius:3px; background:url(../images/blank.gif); -webkit-appearance:none}
-
-::-ms-clear {display:none}
-
-.form-select select {border:1px solid #e1e1e1; font:20px/30px Roboto, sans-serif; color:#036; vertical-align:top; margin:0; padding:21px 19px 7px 19px; width:100%; height:60px; box-sizing:border-box; outline:none; border-radius:2px; background:#fff; -webkit-appearance:none}
-.form-select label.error {display:none !important}
-
-.calc-form form {margin:0; padding:0}
-
-.calc-form-funds {margin:12px 0 2px 0}
-.calc-form-funds:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.calc-form-funds-add {float:left; width:24px; height:24px; background:#fff url(../images/calc-form-funds-add.png) no-repeat center; border-radius:3px; margin:0 20px 10px 0}
-.calc-form-funds-item {float:left; height:24px; padding:0 30px 0 10px; position:relative; background:#fff; margin:0 10px 10px 0; border-radius:3px; color:#431a2d; font-weight:bold; font-size:12px; line-height:24px}
-.calc-form-funds-item-remove {display:block; width:12px; height:12px; background:url(../images/calc-form-funds-item-remove.png); position:absolute; right:9px; top:6px}
-
-.calc-form-inner {background:#fff; padding:21px 30px 30px 30px}
-.calc-form-title {color:#431a2d; font-weight:bold; font-size:18px; line-height:24px; margin:0 0 27px 0}
-.calc-form-row {margin:12px -5px}
-.calc-form-row:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.calc-form-field-1 {float:left; width:62%; box-sizing:border-box; padding:0 5px}
-.calc-form-field-2 {float:left; width:38%; box-sizing:border-box; padding:0 5px}
-.calc-form-field-3 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
-.calc-form-field-4 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
-.calc-form-field-5 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
-.calc-form-submit {margin:31px 0 0 0; width:48%}
-
-@media screen and (max-width:1023px) {
-    .calc-form-row {margin:12px 0}
-    .calc-form-field-1 {float:none; width:auto; margin:12px 0; padding:0}
-    .calc-form-field-2 {float:none; width:auto; margin:12px 0; padding:0}
-    .calc-form-field-3 {float:none; width:auto; margin:12px 0; padding:0}
-    .calc-form-field-4 {float:none; width:auto; margin:12px 0; padding:0}
-    .calc-form-field-5 {float:none; width:auto; margin:12px 0; padding:0}
-    .calc-form-submit {width:auto}
-}
-
-.calc-notice {font-size:12px; line-height:18px; border-left:2px solid #431a2d; padding:5px 0 7px 30px; margin:36px 0}
-.calc-results {position:absolute; left:-9999px; top:-9999px; width:99%}
-.calc-results.open {position:relative; left:auto; top:auto; width:auto}
-.calc-results-top {background:#fff; border-bottom:1px solid #f1f1f1}
-.calc-results-top .content {padding:11px 0 0 0}
-.calc-results-notice {margin-top:-24px}
-
-.calc-results-params:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
-.calc-results-params-table {float:left; width:48.71%}
-.calc-results-params-table td {border-left:none}
-.calc-results-params-table td:nth-child(2) {font-weight:bold; color:#431a2d; text-align:right}
-.calc-results-params-table tr+tr td {border-top-color:#e6e6e6}
-.calc-results-params-chart {float:right; width:38.46%}
-
-.calc-results-chart {background:#fff; padding:71px 0 0 0}
-.calc-results-chart .content {padding-top:0; padding-bottom:0}
-.calc-results-chart h2 {margin:0}
-.calc-results-chart .content+.chart {margin:0}
-.chart-calc-currency {text-transform:uppercase; font:11px/24px FedraSansProBook, sans-serif; padding:28px 0 0 0}
-.chart-calc-currency-link {color:#aaa; text-decoration:none; margin:0 0 0 19px}
-.chart-calc-currency-link span:first-child {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
-.chart-calc-currency-link.active span {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
-.chart-calc-currency-link.active span:first-child {color:#aaa; font:11px/24px FedraSansProBook, sans-serif}
-.chart-calc-currency-link em {display:inline-block; vertical-align:middle; width:32px; height:16px; background:#431a2d; border-radius:8px; margin:0 10px; position:relative}
-.chart-calc-currency-link em:after {content:""; display:block; width:12px; height:12px; background:#fff; position:absolute; left:2px; top:2px; border-radius:50%; transition:all .3s ease}
-.chart-calc-currency-link.active em:after {left:18px}
 
 .chart-alt {
     margin: 74px -122px 74px -122px;
