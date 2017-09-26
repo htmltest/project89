@@ -562,3 +562,11 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 .chart-calc-currency-link em {display:inline-block; vertical-align:middle; width:32px; height:16px; background:#431a2d; border-radius:8px; margin:0 10px; position:relative}
 .chart-calc-currency-link em:after {content:""; display:block; width:12px; height:12px; background:#fff; position:absolute; left:2px; top:2px; border-radius:50%; transition:all .3s ease}
 .chart-calc-currency-link.active em:after {left:18px}
+
+.calc-results-chart-legend {text-align:center; font-size:14px; line-height:24px; color:#707070; padding:0 0 70px 0}
+.calc-results-chart-legend-item {display:inline-block; vertical-align:top; margin:0 17px; padding:0 0 0 32px; position:relative}
+.calc-results-chart-legend-item span {display:block; width:24px; height:24px; position:absolute; left:0; top:0}
+#calc-results-chart-legend-item-1 {display:none}
+#calc-results-chart-legend-item-1.active {display:inline-block}
+#calc-results-chart-legend-item-2 {display:none}
+#calc-results-chart-legend-item-2.active {display:inline-block}
