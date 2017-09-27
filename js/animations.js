@@ -26,6 +26,8 @@ $(document).ready(function () {
        
         animateFundsChart();
         
+        animateProgramChart();
+        
         $(".liq-chart").not(".animated").each(function() {
             
             if ($(this).length && $(this).offset().top + $(this).height()/2 < $(".wrapper-content").height() && !$(this).hasClass("animated")) {

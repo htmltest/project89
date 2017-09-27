@@ -23,6 +23,9 @@
     left: 50%;
     margin-left: -9px;
     top: 100%;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .common-form .form-group {
@@ -75,12 +78,15 @@
 .modal-form input[type=text],
 .modal-form input[type=email],
 .modal-form input[type=password],
-.modal-form textare,
+.modal-form textarea,
 .common-form input[type=text],
 .common-form input[type=email],
 .common-form input[type=password],
-.common-form textare {
-    transition: all .25s ease; 
+.common-form textarea {
+    transition: all .25s ease;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 .modal-form input[type=text]:focus,
@@ -177,6 +183,11 @@
 
 .btn-submit {
     transition: all .15s ease;
+    display: block;
+    min-height: 48px;
+    -webkit-border-radius: 4px;
+    border-radius: 4px;
+    -webkit-appearance: none;
 }
 
 .btn-submit:hover {
@@ -199,4 +210,37 @@
 .form-wrapper {
     background: #fff;
     padding: 30px;
+}
+
+.header-slides-list-content {
+    overflow: auto;
+}
+
+.arrow-top:before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.col-chart-half {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .modal { -webkit-overflow-scrolling: auto; }
+}
+
+@media (max-width: 1100px) {
+    .pres-modal-r,
+    .pres-modal-l {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+    
+    * {
+        cursor: pointer;
+    }
+    
 }
