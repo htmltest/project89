@@ -1,0 +1,32 @@
+.help-link {
+    display: inline-block;
+    vertical-align: middle;
+    width: 16px;
+    height: 18px;
+    background: url(../images/help-link.png);
+    margin: -4px 0 0 3px;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    width: 380px;
+    background: #fff;
+    border-radius: 4px;
+    z-index: 300;
+    box-shadow: 0px 15px 25px 0px rgba(67, 26, 45, 0.1);
+}
+
+.tooltip:before {
+    content: "";
+    width: 18px;
+    height: 18px;
+    border-top: 9px solid #fff;
+    border-left: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 9px solid transparent;
+    position: absolute;
+    left: 50%;
+    margin-left: -9px;
+    top: 100%;
+}

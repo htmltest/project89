@@ -324,6 +324,7 @@ $(document).ready(function() {
                 y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
                 name: 'Начало действия договора',
                 type: 'bar',
+                hoverinfo: 'y',
                 marker: {color: '#c3c3c3'}
             }
 
@@ -332,6 +333,7 @@ $(document).ready(function() {
                 y: [Number(obj.total.replace(/ /g, '').replace(/,/g, '.'))],
                 name: 'Итоговая выплата',
                 type: 'bar',
+                hoverinfo: 'y',
                 marker: {color: '#431a2d'}
             }
 
@@ -340,6 +342,7 @@ $(document).ready(function() {
                 y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
                 name: 'Страховая премия',
                 type: 'bar',
+                hoverinfo: 'y',
                 marker: {color: '#aaaaaa'}
             }
 
@@ -348,6 +351,7 @@ $(document).ready(function() {
                 y: [Number(obj.idd.replace(/ /g, '').replace(/,/g, '.'))],
                 name: 'ИДД без учета валютной переоценки',
                 type: 'bar',
+                hoverinfo: 'y',
                 marker: {color: '#f1f1f1'}
             }
 
@@ -356,6 +360,7 @@ $(document).ready(function() {
                 y: [Number(obj.summidd.replace(/ /g, '').replace(/,/g, '.'))],
                 name: 'Сумма валютной переоценки для определения ИДД',
                 type: 'bar',
+                hoverinfo: 'y',
                 marker: {color: '#802e54'}
             }
 
@@ -363,7 +368,11 @@ $(document).ready(function() {
 
             var layout = {
                 barmode: 'stack',
-                showlegend: false
+                showlegend: false,
+                yaxis: {
+                    side: 'right',
+                    hoverformat: 'r'
+                }
             };
 
             Plotly.newPlot('chart2', data, layout, {displayModeBar: false});
@@ -402,6 +411,7 @@ $(document).ready(function() {
                 name: 'Базовый актив',
                 x: datesArray,
                 y: baseArray,
+                hoverinfo: 'y',
                 line: {color: '#431a2d'}
             }
 
@@ -411,6 +421,7 @@ $(document).ready(function() {
                 name: 'Смартполис',
                 x: datesArray,
                 y: smartArray,
+                hoverinfo: 'y',
                 line: {color: '#a18c96'}
             }
 
@@ -420,6 +431,7 @@ $(document).ready(function() {
                 name: 'Гарантия',
                 x: datesArray,
                 y: garantArray,
+                hoverinfo: 'y',
                 line: {color: '#d0c6ca'}
             }
 
@@ -429,6 +441,7 @@ $(document).ready(function() {
                 name: 'Смартполис без валютной переоценки',
                 x: datesArray,
                 y: smartcurrArray,
+                hoverinfo: 'y',
                 line: {color: '#e8e3e5'}
             }
 
@@ -437,7 +450,7 @@ $(document).ready(function() {
             layoutR = {
                 xaxis: {
                     autorange: true,
-                    range: ['2004-01-01', '2017-09-13'],
+                    range: [datesArray[0], datesArray[-1]],
                     rangeselector: {buttons: [
                         {
                             count: 60,
@@ -458,10 +471,19 @@ $(document).ready(function() {
                             stepmode: 'backward'
                         },
                     ]},
-                    rangeslider: {range: ['2004-01-01', '2017-09-13']},
+                    rangeslider: {range: [datesArray[0], datesArray[-1]]},
                     type: 'date'
                 },
                 hovermode: 'closest',
+                yaxis: {
+                    hoverformat: 'r',
+                    tick: 'r'
+                },
+                font: {
+                    family: 'FedraSansProBook, sans-serif',
+                    size: 11,
+                    color: '#707070'
+                },
                 showlegend: false
             };
 
@@ -480,10 +502,14 @@ $(document).ready(function() {
             var data = [traceR1, traceR3, traceR4];
             Plotly.purge('chart1');
             Plotly.plot('chart1', data, layoutR, {displayModeBar: false});
+            $('#calc-results-chart-legend-item-1').removeClass('active');
+            $('#calc-results-chart-legend-item-2').addClass('active');
         } else {
             var data = [traceR1, traceR2, traceR3];
             Plotly.purge('chart1');
             Plotly.plot('chart1', data, layoutR, {displayModeBar: false});
+            $('#calc-results-chart-legend-item-2').removeClass('active');
+            $('#calc-results-chart-legend-item-1').addClass('active');
         }
         e.preventDefault();
     });
