@@ -381,30 +381,18 @@ $(document).ready(function() {
             $('.calc-results-chart .chart').html('<div id="chart1" class="chart-content" style="height:650px"></div>');
 
             var datesArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                datesArray.push(obj.results[i].date);
-            }
-
             var baseArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                baseArray.push(Number(obj.results[i].base.replace(/ /g, '').replace(/,/g, '.')));
-            }
-
             var smartArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                smartArray.push(Number(obj.results[i].smart.replace(/ /g, '').replace(/,/g, '.')));
-            }
-
             var garantArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                garantArray.push(Number(obj.results[i].garant.replace(/ /g, '').replace(/,/g, '.')));
-            }
-
             var smartcurrArray = [];
             for (var i = 0; i < obj.results.length; i++) {
-                smartcurrArray.push(Number(obj.results[i].smartcurr.replace(/ /g, '').replace(/,/g, '.')));
+                datesArray.push(obj.results[i].date);
+                baseArray.push(Number(obj.results[i].base));
+                smartArray.push(Number(obj.results[i].smart));
+                garantArray.push(Number(obj.results[i].garant));
+                smartcurrArray.push(Number(obj.results[i].smartcurr));
             }
-
+            
             traceR1 = {
                 type: 'scatter',
                 mode: 'lines',

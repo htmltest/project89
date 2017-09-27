@@ -1,23 +1,17 @@
-.help-link {
-    display: inline-block;
-    vertical-align: middle;
-    width: 16px;
-    height: 18px;
-    background: url(../images/help-link.png);
-    margin: -4px 0 0 3px;
-    position: relative;
-}
+* { outline:none !important; }
 
 .tooltip {
     position: absolute;
+    display: none;
     width: 380px;
     background: #fff;
     border-radius: 4px;
     z-index: 300;
     box-shadow: 0px 15px 25px 0px rgba(67, 26, 45, 0.1);
+    padding: 22px 35px;
 }
 
-.tooltip:before {
+.tooltip-arrow {
     content: "";
     width: 18px;
     height: 18px;
@@ -29,4 +23,180 @@
     left: 50%;
     margin-left: -9px;
     top: 100%;
+}
+
+.common-form .form-group {
+    position: relative;
+    margin: 0 0 29px 0;
+}
+
+.common-form .form-group label {
+    display: block;
+    margin: 0 0 5px 0;
+    font-size: 10px;
+    line-height: 14px;
+    text-transform: uppercase;
+    font-weight: normal;
+    letter-spacing: .05em;
+    color: #aaaaaa;
+}
+
+.common-form input[type=text],
+.common-form input[type=password],
+.common-form input[type=email],
+.common-form textarea {
+    font-family: FedraSansPro, sans-serif;
+    font-size: 15px;
+    line-height: 24px;
+    font-weight: bold;
+    color: #431a2d;
+    width: auto;
+    border: none;
+    background: #f7f7f7;
+    border-radius: 4px;
+    padding: 12px 20px 12px 20px;
+    resize: none;
+}
+
+.common-form .form-footer {
+    padding: 12px 0 0 0;
+}
+
+.modal-form label.error,
+.common-form label.error {
+    font-size: 12px;
+    line-height: 18px;
+    color: #e50006;
+    text-transform: none;
+    letter-spacing: 0;
+    margin: 4px 0 0 0;
+}
+
+.modal-form input[type=text],
+.modal-form input[type=email],
+.modal-form input[type=password],
+.modal-form textare,
+.common-form input[type=text],
+.common-form input[type=email],
+.common-form input[type=password],
+.common-form textare {
+    transition: all .25s ease; 
+}
+
+.modal-form input[type=text]:focus,
+.modal-form input[type=email]:focus,
+.modal-form input[type=password]:focus,
+.modal-form textare:focus,
+.common-form input[type=text]:focus,
+.common-form input[type=email]:focus,
+.common-form input[type=password]:focus,
+.common-form textare:focus {
+    box-shadow: 0px 15px 25px 0px rgba(67, 26, 45, 0.1);
+}
+
+.modal-form input[type=text][aria-invalid=false],
+.modal-form input[type=email][aria-invalid=false],
+.modal-form input[type=password][aria-invalid=false],
+.modal-form textare[aria-invalid=false],
+.common-form input[type=text][aria-invalid=false],
+.common-form input[type=email][aria-invalid=false],
+.common-form input[type=password][aria-invalid=false],
+.common-form textare[aria-invalid=false] {
+    background-color: #e8f4d9;
+}
+
+.modal-form input[type=text].error,
+.modal-form input[type=email].error,
+.modal-form input[type=password].error,
+.modal-form textare.error,
+.common-form input[type=text].error,
+.common-form input[type=email].error,
+.common-form input[type=password].error,
+.common-form textare.error {
+    background-color: #facccd;
+    color: #e50006;
+}
+
+.common-form .chosen-container-single .chosen-single {
+    padding: 11px 0 0 16px;
+    height: 48px;
+    border-radius: 4px;
+}
+
+.common-form .form-checkbox,
+.common-form .form-radio {
+    display: inline-block;
+    margin: 0 20px 10px 0;
+}
+
+.common-form input[type=checkbox],
+.common-form input[type=radio] {
+    position: absolute;
+    visibility: hidden;
+}
+
+.common-form input[type=checkbox] + label,
+.common-form input[type=radio] + label {
+    position: relative;
+    padding: 0 0 0 35px;
+    font-size: 15px;
+    line-height: 24px;
+    text-transform: none;
+    letter-spacing: 0;
+    color: #b7b7b7;
+    font-weight: normal;
+}
+
+.common-form input[type=checkbox]:checked + label,
+.common-form input[type=radio]:checked + label {
+    color: #707070;
+}
+
+.common-form input[type=checkbox] + label:before,
+.common-form input[type=radio] + label:before {
+    content: "";
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.common-form input[type=checkbox]:checked + label:before,
+.common-form input[type=radio]:checked + label:before {
+    background-position: 0 -24px;
+}
+
+.common-form input[type=checkbox] + label:before {
+    background-image: url(../images/checkbox.png);
+}
+
+.common-form input[type=radio] + label:before {
+    background-image: url(../images/radio.png);
+}
+
+.btn-submit {
+    transition: all .15s ease;
+}
+
+.btn-submit:hover {
+    background-color: #aaaaaa;
+}
+
+.btn-submit:active {
+    background-color: #707070;
+}
+
+.common-form .btn-submit {
+    display: inline-block;
+    width: auto;
+}
+
+.common-form .form-footer {
+    text-align: center;
+}
+
+.form-wrapper {
+    background: #fff;
+    padding: 30px;
 }
