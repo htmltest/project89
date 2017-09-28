@@ -212,198 +212,206 @@ $(document).ready(function() {
     var traceR1, traceR2, traceR3, traceR4, layoutR;
 
     $('.calc-form form').submit(function(e) {
-        $.ajax({
-            type: 'POST',
-            url: $(this).attr('action'),
-            dataType: 'json',
-            data: $(this).serialize(),
-            cache: false
-        }).complete(function(data) {
-            var obj = $.parseJSON(data.responseText);
-            $('#amount').html(obj.amount);
-            $('#profitableness').html(obj.profitableness);
-            $('#iddpercent').html(obj.iddpercent);
-            $('#idd').html(obj.idd);
-            $('#summidd').html(obj.summidd);
-            $('#iddcurrency').html(obj.iddcurrency);
-            $('#total').html(obj.total);
+        var curForm = $(this);
+        if (!curForm.hasClass('loading')) {
+            curForm.addClass('loading');
+            curForm.find('input[type="submit"]').prop('disable', true)
+            $.ajax({
+                type: 'POST',
+                url: curForm.attr('action'),
+                dataType: 'json',
+                data: curForm.serialize(),
+                cache: false
+            }).complete(function(data) {
+                var obj = $.parseJSON(data.responseText);
+                $('#amount').html(obj.amount);
+                $('#profitableness').html(obj.profitableness);
+                $('#iddpercent').html(obj.iddpercent);
+                $('#idd').html(obj.idd);
+                $('#summidd').html(obj.summidd);
+                $('#iddcurrency').html(obj.iddcurrency);
+                $('#total').html(obj.total);
 
-            $('.calc-results-params-chart').html('');
-            $('.calc-results-params-chart').html('<div id="chart2" class="chart-content"></div>');
+                $('.calc-results-params-chart-inner').html('');
+                $('.calc-results-params-chart-inner').html('<div id="chart2" class="chart-content"></div>');
 
-            var trace1 = {
-                x: ['Начало<br /> действия<br /> договора'],
-                y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
-                name: 'Начало действия договора',
-                type: 'bar',
-                hoverinfo: 'y',
-                marker: {color: '#c3c3c3'}
-            }
-
-            var trace2 = {
-                x: ['Итоговая<br /> выплата'],
-                y: [Number(obj.total.replace(/ /g, '').replace(/,/g, '.'))],
-                name: 'Итоговая выплата',
-                type: 'bar',
-                hoverinfo: 'y',
-                marker: {color: '#431a2d'}
-            }
-
-            var trace3 = {
-                x: ['Структура<br /> итоговой<br /> выплаты'],
-                y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
-                name: 'Страховая премия',
-                type: 'bar',
-                hoverinfo: 'y',
-                marker: {color: '#aaaaaa'}
-            }
-
-            var trace4 = {
-                x: ['Структура<br /> итоговой<br /> выплаты'],
-                y: [Number(obj.idd.replace(/ /g, '').replace(/,/g, '.'))],
-                name: 'ИДД без учета валютной переоценки',
-                type: 'bar',
-                hoverinfo: 'y',
-                marker: {color: '#f1f1f1'}
-            }
-
-            var trace5 = {
-                x: ['Структура<br /> итоговой<br /> выплаты'],
-                y: [Number(obj.summidd.replace(/ /g, '').replace(/,/g, '.'))],
-                name: 'Сумма валютной переоценки для определения ИДД',
-                type: 'bar',
-                hoverinfo: 'y',
-                marker: {color: '#802e54'}
-            }
-
-            var data = [trace1, trace2, trace3, trace4, trace5];
-
-            var layout = {
-                barmode: 'stack',
-                showlegend: false,
-                yaxis: {
-                    side: 'right',
-                    hoverformat: 'r'
+                var trace1 = {
+                    x: ['Начало<br /> действия<br /> договора'],
+                    y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Начало действия договора',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#c3c3c3'}
                 }
-            };
 
-            Plotly.newPlot('chart2', data, layout, {displayModeBar: false});
+                var trace2 = {
+                    x: ['Итоговая<br /> выплата'],
+                    y: [Number(obj.total.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Итоговая выплата',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#431a2d'}
+                }
 
-            $('.calc-results-chart .chart').html('');
-            $('.calc-results-chart .chart').html('<div id="chart1" class="chart-content" style="height:650px"></div>');
+                var trace3 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Страховая премия',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#aaaaaa'}
+                }
 
-            var datesArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                datesArray.push(obj.results[i].date);
-            }
+                var trace4 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.idd.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'ИДД без учета валютной переоценки',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#f1f1f1'}
+                }
 
-            var baseArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                baseArray.push(Number(obj.results[i].base.replace(/ /g, '').replace(/,/g, '.')));
-            }
+                var trace5 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.summidd.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Сумма валютной переоценки для определения ИДД',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#802e54'}
+                }
 
-            var smartArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                smartArray.push(Number(obj.results[i].smart.replace(/ /g, '').replace(/,/g, '.')));
-            }
+                var data = [trace1, trace2, trace3, trace4, trace5];
 
-            var garantArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                garantArray.push(Number(obj.results[i].garant.replace(/ /g, '').replace(/,/g, '.')));
-            }
+                var layout = {
+                    barmode: 'stack',
+                    showlegend: false,
+                    yaxis: {
+                        side: 'right',
+                        hoverformat: ',r',
+                        tickformat: ',r'
+                    }
+                };
 
-            var smartcurrArray = [];
-            for (var i = 0; i < obj.results.length; i++) {
-                smartcurrArray.push(Number(obj.results[i].smartcurr.replace(/ /g, '').replace(/,/g, '.')));
-            }
+                Plotly.newPlot('chart2', data, layout, {displayModeBar: false});
 
-            traceR1 = {
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Базовый актив',
-                x: datesArray,
-                y: baseArray,
-                hoverinfo: 'y',
-                line: {color: '#431a2d'}
-            }
+                $('.calc-results-chart .chart').html('');
+                $('.calc-results-chart .chart').html('<div id="chart1" class="chart-content" style="height:650px"></div>');
 
-            traceR2 = {
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Смартполис',
-                x: datesArray,
-                y: smartArray,
-                hoverinfo: 'y',
-                line: {color: '#a18c96'}
-            }
+                var datesArray = [];
+                for (var i = 0; i < obj.results.length; i++) {
+                    datesArray.push(obj.results[i].date);
+                }
 
-            traceR3 = {
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Гарантия',
-                x: datesArray,
-                y: garantArray,
-                hoverinfo: 'y',
-                line: {color: '#d0c6ca'}
-            }
+                var baseArray = [];
+                for (var i = 0; i < obj.results.length; i++) {
+                    baseArray.push(Number(obj.results[i].base.replace(/ /g, '').replace(/,/g, '.')));
+                }
 
-            traceR4 = {
-                type: 'scatter',
-                mode: 'lines',
-                name: 'Смартполис без валютной переоценки',
-                x: datesArray,
-                y: smartcurrArray,
-                hoverinfo: 'y',
-                line: {color: '#e8e3e5'}
-            }
+                var smartArray = [];
+                for (var i = 0; i < obj.results.length; i++) {
+                    smartArray.push(Number(obj.results[i].smart.replace(/ /g, '').replace(/,/g, '.')));
+                }
 
-            var data = [traceR1, traceR2, traceR3];
+                var garantArray = [];
+                for (var i = 0; i < obj.results.length; i++) {
+                    garantArray.push(Number(obj.results[i].garant.replace(/ /g, '').replace(/,/g, '.')));
+                }
 
-            layoutR = {
-                xaxis: {
-                    autorange: true,
-                    range: [datesArray[0], datesArray[-1]],
-                    rangeselector: {buttons: [
-                        {
-                            count: 60,
-                            label: '5 лет',
-                            step: 'month',
-                            stepmode: 'backward'
-                        },
-                        {
-                            count: 84,
-                            label: '7 лет',
-                            step: 'month',
-                            stepmode: 'backward'
-                        },
-                        {
-                            count: 120,
-                            label: '10 лет',
-                            step: 'month',
-                            stepmode: 'backward'
-                        },
-                    ]},
-                    rangeslider: {range: [datesArray[0], datesArray[-1]]},
-                    type: 'date'
-                },
-                yaxis: {
-                    hoverformat: 'r',
-                    tick: 'r'
-                },
-                font: {
-                    family: 'FedraSansProBook, sans-serif',
-                    size: 11,
-                    color: '#707070'
-                },
-                showlegend: false
-            };
+                var smartcurrArray = [];
+                for (var i = 0; i < obj.results.length; i++) {
+                    smartcurrArray.push(Number(obj.results[i].smartcurr.replace(/ /g, '').replace(/,/g, '.')));
+                }
 
-            Plotly.newPlot('chart1', data, layoutR, {displayModeBar: false});
+                traceR1 = {
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Базовый актив',
+                    x: datesArray,
+                    y: baseArray,
+                    hoverinfo: 'y',
+                    line: {color: '#431a2d'}
+                }
 
-            $('.chart-calc-currency-link').removeClass('active');
-            $('.calc-results').addClass('open');
-            $('.wrapper-content').animate({scrollTop: $('.calc-results').offset().top})
-        });
+                traceR2 = {
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Смартполис',
+                    x: datesArray,
+                    y: smartArray,
+                    hoverinfo: 'y',
+                    line: {color: '#a18c96'}
+                }
+
+                traceR3 = {
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Гарантия',
+                    x: datesArray,
+                    y: garantArray,
+                    hoverinfo: 'y',
+                    line: {color: '#d0c6ca'}
+                }
+
+                traceR4 = {
+                    type: 'scatter',
+                    mode: 'lines',
+                    name: 'Смартполис без валютной переоценки',
+                    x: datesArray,
+                    y: smartcurrArray,
+                    hoverinfo: 'y',
+                    line: {color: '#e8e3e5'}
+                }
+
+                var data = [traceR1, traceR2, traceR3];
+
+                layoutR = {
+                    xaxis: {
+                        autorange: true,
+                        range: [datesArray[0], datesArray[-1]],
+                        rangeselector: {buttons: [
+                            {
+                                count: 60,
+                                label: '5 лет',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                            {
+                                count: 84,
+                                label: '7 лет',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                            {
+                                count: 120,
+                                label: '10 лет',
+                                step: 'month',
+                                stepmode: 'backward'
+                            },
+                        ]},
+                        rangeslider: {range: [datesArray[0], datesArray[-1]]},
+                        type: 'date'
+                    },
+                    yaxis: {
+                        hoverformat: 'r',
+                        tick: 'r'
+                    },
+                    font: {
+                        family: 'FedraSansProBook, sans-serif',
+                        size: 11,
+                        color: '#707070'
+                    },
+                    showlegend: false
+                };
+
+                Plotly.newPlot('chart1', data, layoutR, {displayModeBar: false});
+
+                $('.chart-calc-currency-link').removeClass('active');
+                $('.calc-results').addClass('open');
+                $('.wrapper-content').animate({scrollTop: $('.calc-results').offset().top})
+                curForm.removeClass('loading');
+                curForm.find('input[type="submit"]').prop('disable', false)
+            });
+        }
         e.preventDefault();
     });
 
@@ -480,7 +488,7 @@ $(window).on('load resize', resizeContent);
 
 function resizeContent() {
     var windowHeight = $(document).height();
-    $('.wrapper-content').height(windowHeight - $('header').height() - $('footer').height());
+    $('.wrapper-content').height(windowHeight - $('header').outerHeight() - $('footer').outerHeight());
 
     $('.insur-scheme-center-inner').each(function() {
         var curBlock = $(this);

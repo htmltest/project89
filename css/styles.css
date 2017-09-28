@@ -44,8 +44,8 @@ hr {margin:70px 0; padding:0; height:1px; border:none; background:#aaa}
     .col-half {width:100%}
 }
 
-header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
-.page-inner header {background:#fff}
+header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90; border-bottom:1px solid #431a2d}
+.page-inner header {background:#fff; border-bottom:1px solid #f1f1f1}
 
 .logo {float:left; width:262px; height:72px; background:#431a2d; text-align:center; line-height:72px; position:relative}
 .page-inner .logo {width:52px; padding:0 0 0 39px; text-align:left}
@@ -133,7 +133,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .header-stacks-sub ul li:before {display:none}
 .header-stacks-sub ul li a {display:block; color:#2d2f34; text-decoration:none; padding:10px 0 13px 0}
 
-.wrapper {min-width:480px; width:100%; min-height:100%; height:100%; box-sizing:border-box; padding:72px 0; position:relative; overflow:auto; background:#431a2d url(../images/main-bg.png) no-repeat right bottom}
+.wrapper {min-width:480px; width:100%; min-height:100%; height:100%; box-sizing:border-box; padding:73px 0; position:relative; overflow:auto; background:#431a2d url(../images/main-bg.png) no-repeat right bottom}
 .wrapper-inner {display:table; width:100%}
 .wrapper-content {display:table-cell; vertical-align:middle}
 
@@ -144,7 +144,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 }
 
 .page-inner .wrapper {background:none; white-space:nowrap; padding:0}
-.page-inner .wrapper-inner {display:inline-block; vertical-align:top; width:100%; white-space:normal; padding:72px 0 0 0}
+.page-inner .wrapper-inner {display:inline-block; vertical-align:top; width:100%; white-space:normal; padding:73px 0 0 0}
 .page-inner .wrapper-content {display:block; vertical-align:top; position:relative; overflow:auto}
 
 .main-title {text-align:center; font-weight:bold; font-size:68px; line-height:68px; color:#fff; transition:all .3s ease}
@@ -356,6 +356,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
 .funds-item.show .funds-item-link {opacity:1}
 .funds-item-icon {width:64px; height:64px; background:#fff; line-height:64px; border-radius:50%; transition:background-color .2s ease}
 .funds-item-icon img {vertical-align:middle; margin-top:-2px}
+.slick-slide .funds-item-icon img {display:inline-block}
 .funds-item-icon img:nth-child(2) {position:absolute; left:-9999px; top:-9999px}
 .funds-item-link:hover .funds-item-icon,
 .funds-item.active .funds-item-icon {background:#431a2d}
@@ -449,7 +450,8 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90}
     .funds-item-window {position:fixed; left:50%; transform:translate(-50%, -50%)}
 }
 
-footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
+footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; border-top:1px solid #431a2d}
+.page-inner footer {border-top:1px solid #f1f1f1}
 
 .pager {height:48px; background:#431a2d; font-size:0; line-height:0; letter-spacing:-1px; text-align:center}
 .pager a {display:inline-block; vertical-align:top; width:45px; height:48px; color:#fff; text-decoration:none; font-size:12px; line-height:48px; letter-spacing:0}
@@ -487,7 +489,7 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
     .license {height:auto; line-height:16px; padding:6px 30px 10px 30px}
 }
 
-.pageload-overlay {display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:#aaa}
+.pageload-overlay {display:none; position:fixed; top:0; left:0; right:0; bottom:0; z-index:9999; background:#431a2d}
 .pageload-overlay img {position:absolute; left:50%; top:50%; margin:-71px 0 0 -203px; width:406px; height:142px}
 .wrapper-content .pageload-overlay {position:absolute; z-index:auto}
 
@@ -523,7 +525,10 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 .calc-form-field-3 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
 .calc-form-field-4 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
 .calc-form-field-5 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
-.calc-form-submit {margin:31px 0 0 0; width:48%}
+.calc-form-submit {margin:31px 0 0 0; width:48%; position:relative}
+.calc-form form.loading .calc-form-submit .btn {cursor:default; opacity:.5; background:#431a2d}
+.calc-loading {display:none; position:absolute; right:-48px; top:50%; margin-top:-12px; width:24px; height:24px; background:url(../images/loading.gif)}
+.calc-form form.loading .calc-loading {display:block}
 
 @media screen and (max-width:1023px) {
     .calc-form-row {margin:12px 0}
@@ -570,3 +575,7 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden}
 #calc-results-chart-legend-item-1.active {display:inline-block}
 #calc-results-chart-legend-item-2 {display:none}
 #calc-results-chart-legend-item-2.active {display:inline-block}
+
+.calc-results-params-chart .calc-results-chart-legend {text-align:left; font-size:12px; line-height:18px; padding:0}
+.calc-results-params-chart .calc-results-chart-legend-item {padding:0 0 0 40px; margin:18px 0; display:block}
+.calc-results-params-chart .calc-results-chart-legend-item span {width:18px; height:18px}
