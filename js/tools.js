@@ -224,6 +224,7 @@ $(document).ready(function() {
                 cache: false
             }).complete(function(data) {
                 var obj = $.parseJSON(data.responseText);
+                $('#ku').html(obj.ku);
                 $('#amount').html(obj.amount);
                 $('#profitableness').html(obj.profitableness);
                 $('#iddpercent').html(obj.iddpercent);
