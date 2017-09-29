@@ -362,7 +362,7 @@ $(document).ready(function() {
                     line: {color: '#e8e3e5'}
                 }
 
-                var data = [traceR1, traceR2, traceR3];
+                var data = [traceR1, traceR3, traceR4];
 
                 layoutR = {
                     xaxis: {
@@ -405,6 +405,12 @@ $(document).ready(function() {
 
                 Plotly.newPlot('chart1', data, layoutR, {displayModeBar: false});
 
+                if ($('#calc-currency').val() == '1') {
+                    $('.chart-calc-currency').show();
+                } else {
+                    $('.chart-calc-currency').hide();
+                }
+
                 $('.chart-calc-currency-link').removeClass('active');
                 $('.calc-results').addClass('open');
                 $('.wrapper-content').animate({scrollTop: $('.calc-results').offset().top})
@@ -418,13 +424,13 @@ $(document).ready(function() {
     $('body').on('click', '.chart-calc-currency-link', function(e) {
         $(this).toggleClass('active');
         if ($(this).hasClass('active')) {
-            var data = [traceR1, traceR3, traceR4];
+            var data = [traceR1, traceR2, traceR3];
             Plotly.purge('chart1');
             Plotly.plot('chart1', data, layoutR, {displayModeBar: false});
             $('#calc-results-chart-legend-item-1').removeClass('active');
             $('#calc-results-chart-legend-item-2').addClass('active');
         } else {
-            var data = [traceR1, traceR2, traceR3];
+            var data = [traceR1, traceR3, traceR4];
             Plotly.purge('chart1');
             Plotly.plot('chart1', data, layoutR, {displayModeBar: false});
             $('#calc-results-chart-legend-item-2').removeClass('active');
@@ -505,13 +511,13 @@ $(window).on('load', function() {
 });
 
 function afterLoadContent() {
-/*    $('.header-slides-list-content').jScrollPane({
+    $('.header-slides-list-content').jScrollPane({
         autoReinitialise: true
     });
 
     $('.page-inner .wrapper-content').jScrollPane({
         autoReinitialise: true
-    });*/
+    });
 
     $('.funds-item').addClass('show');
 }
