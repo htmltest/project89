@@ -161,6 +161,10 @@ $(document).ready(function() {
                     var newHTML = $('<div></div>').html(response);
                     $('header').html(newHTML.find('header').html());
                     $('footer').html(newHTML.find('footer').html());
+                    if ($('.wrapper').hasClass('slick-initialized')) {
+                        $('.wrapper').slick('unslick');
+                    }
+                    $('.wrapper-inner:gt(0)').remove();
                     $('.wrapper-content').html(newHTML.find('.wrapper-content').html());
                     if (curLink.hasClass('ajax-page-main')) {
                         $('body').removeClass('page-inner');
