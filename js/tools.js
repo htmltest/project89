@@ -114,26 +114,6 @@ $(document).ready(function() {
         }
     });
 
-    $('body').on('click', '.funds-item-window-prev', function(e) {
-        var curIndex = $('.funds-item').index($('.funds-item.active'));
-        curIndex--;
-        if (curIndex < 0) {
-            curIndex = $('.funds-item').length - 1;
-        }
-        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
-        e.preventDefault();
-    });
-
-    $('body').on('click', '.funds-item-window-next', function(e) {
-        var curIndex = $('.funds-item').index($('.funds-item.active'));
-        curIndex++;
-        if (curIndex > $('.funds-item').length - 1) {
-            curIndex = 0;
-        }
-        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
-        e.preventDefault();
-    });
-
     $('body').on('click', '.funds-item-window-close', function(e) {
         $('.funds-item.active').removeClass('active');
         e.preventDefault();
@@ -498,7 +478,9 @@ function initForm(curForm) {
 $(window).on('load resize', resizeContent);
 
 function resizeContent() {
-    var windowHeight = $(document).height();
+    $('body').append('<div id="tempHeight" style="position:fixed; left:0; top:0; width:1px; bottom:0"></div>');
+    var windowHeight = $('#tempHeight').height();
+    $('#tempHeight').remove();
     $('.wrapper-content').height(windowHeight - $('header').outerHeight() - $('footer').outerHeight());
 
     $('.insur-scheme-center-inner').each(function() {
@@ -553,7 +535,9 @@ function createSlides() {
             if (!curSlide.hasClass('loaded')) {
                 var curLink = $('.pager a').eq(nextSlide);
                 if (typeof (history.pushState) != 'undefined') {
-                    curSlide.find('.wrapper-content').append('<div class="pageload-overlay"></div>');
+                    curSlide.find('.wrapper-content').append('<div class="wrapper-content-loading"></div>');
+                    var curSrc = curSlide.find('.wrapper-content-loading').css('background-image').replace('url("', '').replace('")', '');
+                    curSlide.find('.wrapper-content-loading').css('background-image', 'url("' + curSrc + '?id=' + Date.now() + '")');
                     var startTime = Date.now();
                     $.ajax({
                         url: curLink.attr('href'),
@@ -595,7 +579,7 @@ function createSlides() {
                                 autoReinitialise: true
                             });
                             curSlide.addClass('loaded');
-                            curSlide.find('.pageload-overlay').remove();
+                            curSlide.find('.wrapper-content-loading').remove();
                             afterLoadContent();
                         }
 

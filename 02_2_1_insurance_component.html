@@ -8,13 +8,17 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
-        <link rel="stylesheet" href="js/dygraph/dygraph.css" />
+        <link rel="stylesheet" href="js/chosen/chosen.css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
         <script src="js/jquery-2.2.4.min.js"></script>
         <script src="js/jscrollpane/jquery.mousewheel.js"></script>
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
-        <script src="js/dygraph/dygraph.js"></script>
+        <script src="js/plotly-latest.min.js"></script>
+        <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -25,7 +29,11 @@
         <header>
             <div class="logo"><a href="#"><img src="images/logo-inner.svg" alt="" width="25" height="25" /></a></div>
 
-            <div class="breadcrumbs"><a href="00_main.html" class="ajax-page ajax-page-main">СмартПолис</a><span></span><a href="#">Информация о продукте</a><span></span>Принцип работы СмартПолиса</div>
+            <div class="breadcrumbs">
+                <div class="breadcrumbs-wrap">
+                    <div class="breadcrumbs-inner"><a href="00_main.html" class="ajax-page ajax-page-main">СмартПолис</a><span></span><a href="#">Информация о продукте</a><span></span><a href="#">Преимущества программы перед аналогичными программами</a><span></span>Страховая компонента</div>
+                </div>
+            </div>
 
             <div class="header-slides">
                 <a href="#" class="header-slides-link"><span><img src="images/slides.png" alt="" data-animate="images/slides.gif" width="50" height="30" /></span>Слайды</a>
@@ -207,21 +215,21 @@
                         <h1>Страховая компонента</h1>
                         <div class="insur-tabs">
                             <div class="insur-tabs-inner">
-                                <div class="insur-tab">
+                                <a href="#TOP_LINK_1" class="insur-tab">
                                     <div class="insur-tab-title">Страховая защита</div>
                                     <div class="insur-tab-text">Защита семьи на случай ухода клиента из жизни</div>
-                                </div>
-                                <div class="insur-tab">
+                                </a>
+                                <a href="#TOP_LINK_2" class="insur-tab">
                                     <div class="insur-tab-title">Особое льготное налогообложение</div>
                                     <div class="insur-tab-text">Возможность возврата уплаченного НДФЛ через механизм налогового вычета</div>
-                                </div>
-                                <div class="insur-tab">
+                                </a>
+                                <a href="#TOP_LINK_3" class="insur-tab">
                                     <div class="insur-tab-title">Юридическая защита</div>
                                     <div class="insur-tab-text">Консультации и ведение вопросов</div>
-                                </div>
+                                </a>
                             </div>
                         </div>
-                        <h2>Страховая компонента</h2>
+                        <h2 id="TOP_LINK_1">Страховая компонента</h2>
                         <blockquote><strong>Страховая компонента –</strong> Защита семьи на случай ухода Клиента из жизни.<br /> Удвоенная страховая выплата, если уход из жизни связан с&nbsp;несчастным случаем.</blockquote>
                         <div class="insur-scheme">
                             <div class="insur-scheme-header">
@@ -257,14 +265,14 @@
                             </div>
                         </div>
                         <hr />
-                        <h2>Особое льготное налогообложение</h2>
+                        <h2 id="TOP_LINK_2">Особое льготное налогообложение</h2>
                         <ul>
                             <li>Возможность возврата уплаченного НДФЛ через механизм <a href="#" class="dots-link">налогового вычета</a> <a href="#" class="help-link"></a></li>
                             <li>По риску дожития НДФЛ 13% платится с разницы между страховой выплатой и суммой страховых взносов, увеличенных на ставку рефинансирования ЦБ РФ за каждый год действия программы</li>
                             <li>Льгота не применяется при досрочном расторжении полиса</li>
                         </ul>
                         <hr />
-                        <h2>Юридическая защита</h2>
+                        <h2 id="TOP_LINK_3">Юридическая защита</h2>
                         <ul>
                             <li>
                                 <h3>Наследование</h3>

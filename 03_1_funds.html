@@ -8,13 +8,17 @@
         <link rel="stylesheet" href="css/styles.css" />
         <link rel="stylesheet" href="js/jscrollpane/jquery.jscrollpane.css" />
         <link rel="stylesheet" href="js/slick/slick.css" />
-        <link rel="stylesheet" href="js/dygraph/dygraph.css" />
+        <link rel="stylesheet" href="js/chosen/chosen.css" />
+        <link rel="stylesheet" href="js/jquery-ui-1.12.1.custom/jquery-ui.css" />
 
         <script src="js/jquery-2.2.4.min.js"></script>
         <script src="js/jscrollpane/jquery.mousewheel.js"></script>
         <script src="js/jscrollpane/jquery.jscrollpane.min.js"></script>
         <script src="js/slick/slick.min.js"></script>
-        <script src="js/dygraph/dygraph.js"></script>
+        <script src="js/plotly-latest.min.js"></script>
+        <script src="js/chosen/chosen.jquery.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
+        <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -25,7 +29,11 @@
         <header>
             <div class="logo"><a href="#"><img src="images/logo-inner.svg" alt="" width="25" height="25" /></a></div>
 
-            <div class="breadcrumbs"><a href="00_main.html" class="ajax-page ajax-page-main">СмартПолис</a><span></span><a href="#">Информация о продукте</a><span></span>Принцип работы СмартПолиса</div>
+            <div class="breadcrumbs">
+                <div class="breadcrumbs-wrap">
+                    <div class="breadcrumbs-inner"><a href="00_main.html" class="ajax-page ajax-page-main">СмартПолис</a><span></span><a href="#">Информация о продукте</a><span></span>Принцип работы СмартПолиса</div>
+                </div>
+            </div>
 
             <div class="header-slides">
                 <a href="#" class="header-slides-link"><span><img src="images/slides.png" alt="" data-animate="images/slides.gif" width="50" height="30" /></span>Слайды</a>
@@ -217,11 +225,14 @@
                                     <div class="funds-item-title">Депозит<br /> в РФ</div>
                                 </div>
                                 <div class="funds-item-window">
-                                    <h3>Депозит в РФ</h3>
-                                    <p>Получение высокодиверсифицированного портфеля инструментов с низким риском. В составе фонда представлено более 4 000 различных бумаг, среди которых облигации, инструменты рентной доходности от недвижимости и акции с высокими дивидендными выплатами.</p>
-                                    <div class="funds-item-more"><a href="#">Подробнее</a></div>
-                                    <a href="#" class="funds-item-window-prev"></a>
-                                    <a href="#" class="funds-item-window-next"></a>
+                                    <h3><img src="images/funds-item-icon-1.svg" alt="" width="33" /> Депозит в РФ</h3>
+                                    <h5>Инвестиционная идея</h5>
+                                    <p>Данный материал носит справочно-информационный и&nbsp;аналитический характер, предназначен для клиентов по&nbsp;страховой программе СмартПолис.</p>
+                                    <h5>Доходность фонда</h5>
+                                    <p>СмартПолис – программа ивестиционного страхования жизни. Страховую услугу предоставляет ООО СК "Сбербанк Страхование жизни".</p>
+                                    <h5>Состав фонда</h5>
+                                    <p>Лицензия на осуществеление страхования СЖ №3692 (вид деятельности - добровольное страование жизни), выдана Банком России без ограничения срока действия</p>
+                                    <div class="funds-item-more"><a href="#">Детальный обзор фонда</a></div>
                                     <a href="#" class="funds-item-window-close"></a>
                                 </div>
                             </div>
@@ -231,11 +242,14 @@
                                     <div class="funds-item-title">Глобальный<br /> фонд<br /> облигаций</div>
                                 </div>
                                 <div class="funds-item-window">
-                                    <h3>Глобальный фонд облигаций</h3>
-                                    <p>Получение высокодиверсифицированного портфеля инструментов с низким риском. В составе фонда представлено более 4 000 различных бумаг, среди которых облигации, инструменты рентной доходности от недвижимости и акции с высокими дивидендными выплатами.</p>
-                                    <div class="funds-item-more"><a href="#">Подробнее</a></div>
-                                    <a href="#" class="funds-item-window-prev"></a>
-                                    <a href="#" class="funds-item-window-next"></a>
+                                    <h3><img src="images/funds-item-icon-2.svg" alt="" width="36" /> Глобальный фонд облигаций</h3>
+                                    <h5>Инвестиционная идея</h5>
+                                    <p>Данный материал носит справочно-информационный и&nbsp;аналитический характер, предназначен для клиентов по&nbsp;страховой программе СмартПолис.</p>
+                                    <h5>Доходность фонда</h5>
+                                    <p>СмартПолис – программа ивестиционного страхования жизни. Страховую услугу предоставляет ООО СК "Сбербанк Страхование жизни".</p>
+                                    <h5>Состав фонда</h5>
+                                    <p>Лицензия на осуществеление страхования СЖ №3692 (вид деятельности - добровольное страование жизни), выдана Банком России без ограничения срока действия</p>
+                                    <div class="funds-item-more"><a href="#">Детальный обзор фонда</a></div>
                                     <a href="#" class="funds-item-window-close"></a>
                                 </div>
                             </div>
@@ -245,11 +259,14 @@
                                     <div class="funds-item-title">Сырьевая<br /> корзина</div>
                                 </div>
                                 <div class="funds-item-window">
-                                    <h3>Сырьевая корзина</h3>
-                                    <p>Получение высокодиверсифицированного портфеля инструментов с низким риском. В составе фонда представлено более 4 000 различных бумаг, среди которых облигации, инструменты рентной доходности от недвижимости и акции с высокими дивидендными выплатами.</p>
-                                    <div class="funds-item-more"><a href="#">Подробнее</a></div>
-                                    <a href="#" class="funds-item-window-prev"></a>
-                                    <a href="#" class="funds-item-window-next"></a>
+                                    <h3><img src="images/funds-item-icon-3.svg" alt="" width="34" /> Сырьевая корзина</h3>
+                                    <h5>Инвестиционная идея</h5>
+                                    <p>Данный материал носит справочно-информационный и&nbsp;аналитический характер, предназначен для клиентов по&nbsp;страховой программе СмартПолис.</p>
+                                    <h5>Доходность фонда</h5>
+                                    <p>СмартПолис – программа ивестиционного страхования жизни. Страховую услугу предоставляет ООО СК "Сбербанк Страхование жизни".</p>
+                                    <h5>Состав фонда</h5>
+                                    <p>Лицензия на осуществеление страхования СЖ №3692 (вид деятельности - добровольное страование жизни), выдана Банком России без ограничения срока действия</p>
+                                    <div class="funds-item-more"><a href="#">Детальный обзор фонда</a></div>
                                     <a href="#" class="funds-item-window-close"></a>
                                 </div>
                             </div>
@@ -259,11 +276,14 @@
                                     <div class="funds-item-title">Недвижи-<br /> мость</div>
                                 </div>
                                 <div class="funds-item-window">
-                                    <h3>Недвижимость</h3>
-                                    <p>Получение высокодиверсифицированного портфеля инструментов с низким риском. В составе фонда представлено более 4 000 различных бумаг, среди которых облигации, инструменты рентной доходности от недвижимости и акции с высокими дивидендными выплатами.</p>
-                                    <div class="funds-item-more"><a href="#">Подробнее</a></div>
-                                    <a href="#" class="funds-item-window-prev"></a>
-                                    <a href="#" class="funds-item-window-next"></a>
+                                    <h3><img src="images/funds-item-icon-4.svg" alt="" width="38" /> Недвижимость</h3>
+                                    <h5>Инвестиционная идея</h5>
+                                    <p>Данный материал носит справочно-информационный и&nbsp;аналитический характер, предназначен для клиентов по&nbsp;страховой программе СмартПолис.</p>
+                                    <h5>Доходность фонда</h5>
+                                    <p>СмартПолис – программа ивестиционного страхования жизни. Страховую услугу предоставляет ООО СК "Сбербанк Страхование жизни".</p>
+                                    <h5>Состав фонда</h5>
+                                    <p>Лицензия на осуществеление страхования СЖ №3692 (вид деятельности - добровольное страование жизни), выдана Банком России без ограничения срока действия</p>
+                                    <div class="funds-item-more"><a href="#">Детальный обзор фонда</a></div>
                                     <a href="#" class="funds-item-window-close"></a>
                                 </div>
                             </div>
@@ -273,11 +293,14 @@
                                     <div class="funds-item-title">Золото</div>
                                 </div>
                                 <div class="funds-item-window">
-                                    <h3>Золото</h3>
-                                    <p>Получение высокодиверсифицированного портфеля инструментов с низким риском. В составе фонда представлено более 4 000 различных бумаг, среди которых облигации, инструменты рентной доходности от недвижимости и акции с высокими дивидендными выплатами.</p>
-                                    <div class="funds-item-more"><a href="#">Подробнее</a></div>
-                                    <a href="#" class="funds-item-window-prev"></a>
-                                    <a href="#" class="funds-item-window-next"></a>
+                                    <h3><img src="images/funds-item-icon-5.svg" alt="" width="43" /> Золото</h3>
+                                    <h5>Инвестиционная идея</h5>
+                                    <p>Данный материал носит справочно-информационный и&nbsp;аналитический характер, предназначен для клиентов по&nbsp;страховой программе СмартПолис.</p>
+                                    <h5>Доходность фонда</h5>
+                                    <p>СмартПолис – программа ивестиционного страхования жизни. Страховую услугу предоставляет ООО СК "Сбербанк Страхование жизни".</p>
+                                    <h5>Состав фонда</h5>
+                                    <p>Лицензия на осуществеление страхования СЖ №3692 (вид деятельности - добровольное страование жизни), выдана Банком России без ограничения срока действия</p>
+                                    <div class="funds-item-more"><a href="#">Детальный обзор фонда</a></div>
                                     <a href="#" class="funds-item-window-close"></a>
                                 </div>
                             </div>
