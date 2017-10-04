@@ -545,10 +545,20 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .calc-form-field-3 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
 .calc-form-field-4 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
 .calc-form-field-5 {float:left; width:33.33%; box-sizing:border-box; padding:0 5px}
-.calc-form-submit {margin:31px 0 0 0; width:48%; position:relative}
+.calc-form-ctrl {margin:31px 0 0 0}
+.calc-form-ctrl:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.calc-form-submit {float:right; width:270px; position:relative}
 .calc-form form.loading .calc-form-submit .btn {cursor:default; opacity:.5; background:#431a2d}
-.calc-loading {display:none; position:absolute; right:-48px; top:50%; margin-top:-12px; width:24px; height:24px; background:url(../images/loading.gif)}
+.calc-loading {display:none; position:absolute; right:-28px; top:50%; margin-top:-12px; width:24px; height:24px; background:url(../images/loading.gif)}
 .calc-form form.loading .calc-loading {display:block}
+.calc-form-save {float:right; margin:0 20px 0 0; position:relative}
+.calc-form-save-link {display:block; width:218px; height:46px; border:1px solid #d0c6ca; border-radius:3px; text-align:center; text-transform:uppercase; text-decoration:none; color:#431a2d; font:11px/46px FedraSansProBook, sans-serif}
+.calc-form-save-window {display:none; position:absolute; left:-120px; top:-79px; padding:18px 20px; width:420px; height:60px; background:#fff; z-index:99; border-radius:3px; box-shadow:0 15px 25px rgba(67, 26, 45, .25)}
+.calc-form-save-window.open {display:block}
+.calc-form-save-window:before {content:""; display:block; position:absolute; left:50%; bottom:-9px; margin-left:-10px; width:0; height:0; border-top:9px solid #fff; border-left:10px solid transparent; border-right:10px solid transparent}
+.calc-form-save-window:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.calc-form-save-window .form-input {float:left; width:260px}
+.calc-form-save-submit {float:right; width:152px; height:60px; line-height:60px}
 
 @media screen and (max-width:1023px) {
     .calc-form-row {margin:12px 0}
@@ -599,3 +609,37 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .calc-results-params-chart .calc-results-chart-legend {text-align:left; font-size:12px; line-height:18px; padding:0}
 .calc-results-params-chart .calc-results-chart-legend-item {padding:0 0 0 40px; margin:18px 0; display:block}
 .calc-results-params-chart .calc-results-chart-legend-item span {width:18px; height:18px}
+
+.jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:26px; width:17px; height:26px; margin-left:-9px; background:url(../images/scroll.png); z-index:90}
+.jspScrollable.noscroll .jspContainer:before {display:none}
+.jspScrollable .jspContainer:after {content:""; display:block; position:absolute; left:50%; bottom:16px; width:10px; height:17px; margin-left:-5px; background:url(../images/scroll-arrow.png); z-index:90; animation:pulse-down 2s ease-in infinite}
+.jspScrollable.noscroll .jspContainer:after {display:none}
+
+@keyframes pulse-down{
+    20%{
+        transform:translate3d(0, 1px, 0)
+    }
+    40%{
+        transform:translate3d(0, 5px, 0)
+    }
+    60%{
+        transform:translate3d(0, 1px, 0)
+    }
+    80%{
+        transform:translate3d(0, 5px, 0)
+    }
+    100%{
+        transform:translate3d(0, 1px, 0)
+    }
+}
+
+.slide-prev-link,
+.slide-next-link {padding:0; border:none; text-indent:-10000px; overflow:hidden; border-radius:50%; width:48px; height:48px; cursor:pointer; z-index:10; position:absolute; top:50%; margin-top:-75px; background:#fff; outline:none !important; box-shadow:0 0 13px rgba(0, 0, 0, .23)}
+.slide-prev-link {left:35px}
+.slide-next-link {right:35px}
+.slide-prev-link:before,
+.slide-next-link:before {content:""; display:block; width:10px; height:17px; background:url(../images/slides-arrows.png); position:absolute; left:50%; top:50%; margin:-9px 0 0 -5px}
+.slide-prev-link:before {background-position:left top}
+.slide-next-link:before {background-position:-11px top}
+.slide-prev-link:hover:before {background-position:left -18px}
+.slide-next-link:hover:before {background-position:-11px -18px}

@@ -424,7 +424,51 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
+    loadConfigCalc();
+
+    $('body').on('click', '.calc-form-save-link', function(e) {
+        $('.calc-form-save-window').toggleClass('open');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.calc-form-save-submit', function(e) {
+        $('.calc-form-save-window').removeClass('open');
+        $.cookie('calcTitle', $('.calc-form-save-window input[name="config"]').val());
+        $('.calc-form-title').html($('.calc-form-save-window input[name="config"]').val());
+        $.cookie('calcFund', $('.calc-form-field-1 select').val());
+        $.cookie('calcDate', $('.calc-form-field-2 input').val());
+        $.cookie('calcCurr', $('.calc-form-field-3 select').val());
+        $.cookie('calcAmount', $('.calc-form-field-4 input').val());
+        $.cookie('calcTime', $('.calc-form-field-5 select').val());
+        e.preventDefault();
+    });
+
 });
+
+function loadConfigCalc() {
+    if (typeof $.cookie('calcTitle') != 'undefined') {
+        $('.calc-form-save-window input[name="config"]').val($.cookie('calcTitle'));
+        $('.calc-form-title').html($.cookie('calcTitle'));
+    }
+    if (typeof $.cookie('calcFund') != 'undefined') {
+        $('.calc-form-field-1 select option[value="' + $.cookie('calcFund') + '"]').prop('selected', true);
+        $('.calc-form-field-1 select').trigger('chosen:updated');
+    }
+    if (typeof $.cookie('calcDate') != 'undefined') {
+        $('.calc-form-field-2 input').val($.cookie('calcDate'));
+    }
+    if (typeof $.cookie('calcCurr') != 'undefined') {
+        $('.calc-form-field-3 select option[value="' + $.cookie('calcCurr') + '"]').prop('selected', true);
+        $('.calc-form-field-3 select').trigger('chosen:updated');
+    }
+    if (typeof $.cookie('calcAmount') != 'undefined') {
+        $('.calc-form-field-4 input').val($.cookie('calcAmount'));
+    }
+    if (typeof $.cookie('calcTime') != 'undefined') {
+        $('.calc-form-field-5 select option[value="' + $.cookie('calcTime') + '"]').prop('selected', true);
+        $('.calc-form-field-5 select').trigger('chosen:updated');
+    }
+}
 
 $(window).on('resize', function() {
     $('.form-select select').chosen('destroy');
@@ -491,6 +535,8 @@ function resizeContent() {
         curBlock.find('span').css({'border-top-width': curHeight / 2, 'border-bottom-width': curHeight / 2});
         curBlock.find('strong').css({'border-left-width': curWidth / 2, 'border-right-width': curWidth / 2});
     });
+
+    $('.scroll').css({'bottom': $('footer').outerHeight() - 32});
 }
 
 $(window).on('load', function() {
@@ -504,6 +550,12 @@ function afterLoadContent() {
 
     $('.page-inner .wrapper-content').jScrollPane({
         autoReinitialise: true
+    }).bind('jsp-scroll-y', function(event, scrollPositionY, isAtTop, isAtBottom) {
+        if (isAtBottom) {
+            $(this).addClass('noscroll');
+        } else {
+            $(this).removeClass('noscroll');
+        }
     });
 
     $('.funds-item').addClass('show');

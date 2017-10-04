@@ -19,6 +19,7 @@
         <script src="js/chosen/chosen.jquery.min.js"></script>
         <script src="js/jquery-ui-1.12.1.custom/jquery-ui.min.js"></script>
         <script src="js/jquery-ui-1.12.1.custom/datepicker-ru.js"></script>
+        <script src="js/jquery.cookie.js"></script>
         <script src="js/tools.js"></script>
 
         <meta name="viewport" content="width=device-width" />
@@ -263,7 +264,16 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="calc-form-submit"><input type="submit" value="Сделать расчёт" class="btn" /> <div class="calc-loading"></div></div>
+                                    <div class="calc-form-ctrl">
+                                        <div class="calc-form-submit"><input type="submit" value="Сделать расчёт" class="btn" /> <div class="calc-loading"></div></div>
+                                        <div class="calc-form-save">
+                                            <a href="#" class="calc-form-save-link">Сохранить конфигурацию</a>
+                                            <div class="calc-form-save-window">
+                                                <div class="form-input"><span>Название конфигурации</span><input type="text" name="config" value="Калькулятор доходности" /></div>
+                                                <a href="#" class="calc-form-save-submit btn">Сохранить</a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </form>
                         </div>
