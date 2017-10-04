@@ -507,6 +507,14 @@ function afterLoadContent() {
     });
 
     $('.funds-item').addClass('show');
+
+    $('.wrapper-content').each(function() {
+        var curBlock = $(this);
+
+        if (!curBlock.hasClass('jspScrollable')) {
+            curBlock.find('.content').css({'margin-top': (curBlock.outerHeight() - curBlock.find('.content').outerHeight()) / 2});
+        }
+    });
 }
 
 function createSlides() {
