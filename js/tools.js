@@ -117,6 +117,26 @@ $(document).ready(function() {
         }
     });
 
+   $('body').on('click', '.funds-item-window-prev', function(e) {
+        var curIndex = $('.funds-item').index($('.funds-item.active'));
+        curIndex--;
+        if (curIndex < 0) {
+            curIndex = $('.funds-item').length - 1;
+        }
+        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.funds-item-window-next', function(e) {
+        var curIndex = $('.funds-item').index($('.funds-item.active'));
+        curIndex++;
+        if (curIndex > $('.funds-item').length - 1) {
+            curIndex = 0;
+        }
+        $('.funds-item').eq(curIndex).find('.funds-item-link').trigger('click');
+        e.preventDefault();
+    });
+
     $('body').on('click', '.funds-item-window-close', function(e) {
         $('.funds-item.active').removeClass('active');
         e.preventDefault();
@@ -427,8 +447,6 @@ $(document).ready(function() {
         e.preventDefault();
     });
 
-    loadConfigCalc();
-
     $('body').on('click', '.calc-form-save-link', function(e) {
         $('.calc-form-save-window').toggleClass('open');
         e.preventDefault();
@@ -436,14 +454,46 @@ $(document).ready(function() {
 
     $('body').on('click', '.calc-form-save-submit', function(e) {
         $('.calc-form-save-window').removeClass('open');
-        $.cookie('calcTitle', $('.calc-form-save-window input[name="config"]').val());
-        $('.calc-form-title').html($('.calc-form-save-window input[name="config"]').val());
-        $.cookie('calcFund', $('.calc-form-field-1 select').val());
-        $.cookie('calcDate', $('.calc-form-field-2 input').val());
-        $.cookie('calcCurr', $('.calc-form-field-3 select').val());
-        $.cookie('calcAmount', $('.calc-form-field-4 input').val());
-        $.cookie('calcTime', $('.calc-form-field-5 select').val());
+        $('.calc-form-funds').append('<div class="calc-form-funds-item"><a href="#" class="calc-form-funds-item-load">' + $('.calc-form-save-window input[name="config"]').val() + '</a><a href="#" class="calc-form-funds-item-remove"></a></div>');
+        var configs = [];
+        if (typeof $.cookie('calcConfig') != 'undefined') {
+            configs = JSON.parse($.cookie('calcConfig'));
+        }
+        configs.push([
+            $('.calc-form-save-window input[name="config"]').val(),
+            $('.calc-form-field-1 select').val(),
+            $('.calc-form-field-2 input').val(),
+            $('.calc-form-field-3 select').val(),
+            $('.calc-form-field-4 input').val(),
+            $('.calc-form-field-5 select').val()
+        ]);
+        $.removeCookie('calcConfig');
+        $.cookie('calcConfig', JSON.stringify(configs));
         e.preventDefault();
+    });
+
+    $('body').on('click', '.calc-form-funds-item-remove', function(e) {
+        var curItem = $(this).parent();
+        curItem.remove();
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.calc-form-funds-item-load', function(e) {
+        var curItem = $(this).parent();
+        e.preventDefault();
+    });
+
+    $('body').on('click', '.insur-tab', function(e) {
+        var curLink = $(this);
+        var curBlock = $(curLink.attr('href'));
+        if (curBlock.length > 0) {
+            var curBlock = curLink.parents().filter('.wrapper-content');
+            var api = curBlock.data('jsp');
+            if (api) {
+                api.scrollToElement($(curLink.attr('href')), true, true);
+            }
+            e.preventDefault();
+        }
     });
 
 });
