@@ -6,7 +6,15 @@
 
 html {min-width:480px; height:100%}
 
+@media screen and (max-width:1023px) {
+    html {height:auto}
+}
+
 body {min-width:480px; height:100%; margin:0; padding:0; font:15px/24px FedraSansPro, sans-serif; color:#707070; background:#f1f1f1; -webkit-text-size-adjust:100%}
+
+@media screen and (max-width:1023px) {
+    body {height:auto}
+}
 
 a {outline:none; color:#431a2d}
 
@@ -135,20 +143,20 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90; border-
 .header-stacks-sub ul li:before {display:none}
 .header-stacks-sub ul li a {display:block; color:#2d2f34; text-decoration:none; padding:10px 0 13px 0}
 
-.wrapper {min-width:480px; width:100%; min-height:100%; height:100%; box-sizing:border-box; padding:73px 0; position:relative; overflow:auto; background:#431a2d url(../images/main-bg.png) no-repeat right bottom}
-.wrapper-inner {display:table; width:100%}
-.wrapper-content {display:table-cell; vertical-align:middle; position:relative}
+.wrapper {min-width:480px; width:100%; min-height:100%; height:100%; box-sizing:border-box; position:relative; overflow:auto; background:#431a2d url(../images/main-bg.png) no-repeat right bottom}
+.wrapper-inner {display:block; width:100%; padding:73px 0 0 0}
+.wrapper-content {display:block; position:relative}
 .wrapper-content-loading {position:absolute; left:50%; top:50%; width:406px; height:142px; background:url(../images/preloader_grey.gif); margin:-71px 0 0 -203px}
 
 @media screen and (max-width:1023px) {
-    .wrapper {background-image:url(../images/main-bg-mobile.png)}
+    .wrapper {background:none; height:auto}
     .wrapper-inner {display:block}
-    .wrapper-content {display:block; vertical-align:top; overflow:auto}
+    .wrapper-content {display:block; overflow:auto; background:#431a2d url(../images/main-bg-mobile.png) no-repeat right bottom; background-position:fixed}
 }
 
 .page-inner .wrapper {background:none; white-space:nowrap; padding:0}
 .page-inner .wrapper-inner {display:inline-block; vertical-align:top; width:100%; white-space:normal; padding:73px 0 0 0}
-.page-inner .wrapper-content {display:block; vertical-align:top; position:relative; overflow:auto}
+.page-inner .wrapper-content {display:block; position:relative; overflow:auto; background:none}
 
 .main-title {text-align:center; font-weight:bold; font-size:68px; line-height:68px; color:#fff; transition:all .3s ease}
 .main.open .main-title {font-size:34px; line-height:34px}
@@ -185,7 +193,7 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90; border-
 
 @media screen and (max-width:1023px) {
     .main-menu,
-    .main.open .main-menu {width:auto; margin:0 35px; padding:54px 0 0 0}
+    .main.open .main-menu {width:auto; margin:0 35px; padding:54px 0}
     .main-menu-item {float:none; width:auto}
     .main-menu-item-link {height:120px}
     .main-menu-item-link br {display:none}
@@ -610,10 +618,10 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .calc-results-params-chart .calc-results-chart-legend-item {padding:0 0 0 40px; margin:18px 0; display:block}
 .calc-results-params-chart .calc-results-chart-legend-item span {width:18px; height:18px}
 
-.jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:26px; width:17px; height:26px; margin-left:-9px; background:url(../images/scroll.png); z-index:90}
-.jspScrollable.noscroll .jspContainer:before {display:none}
-.jspScrollable .jspContainer:after {content:""; display:block; position:absolute; left:50%; bottom:16px; width:10px; height:17px; margin-left:-5px; background:url(../images/scroll-arrow.png); z-index:90; animation:pulse-down 2s ease-in infinite}
-.jspScrollable.noscroll .jspContainer:after {display:none}
+.jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:26px; width:17px; height:26px; margin-left:-9px; background:url(../images/scroll.png); z-index:90; transition:opacity .3s ease}
+.jspScrollable.noscroll .jspContainer:before {opacity:0}
+.jspScrollable .jspContainer:after {content:""; display:block; position:absolute; left:50%; bottom:16px; width:10px; height:17px; margin-left:-5px; background:url(../images/scroll-arrow.png); z-index:90; animation:pulse-down 2s ease-in infinite; transition:opacity .3s ease}
+.jspScrollable.noscroll .jspContainer:after {opacity:0}
 
 @keyframes pulse-down{
     20%{
@@ -634,7 +642,7 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 }
 
 .slide-prev-link,
-.slide-next-link {padding:0; border:none; text-indent:-10000px; overflow:hidden; border-radius:50%; width:48px; height:48px; cursor:pointer; z-index:10; position:absolute; top:50%; margin-top:-75px; background:#fff; outline:none !important; box-shadow:0 0 13px rgba(0, 0, 0, .23)}
+.slide-next-link {padding:0; border:none; text-indent:-10000px; overflow:hidden; border-radius:50%; width:48px; height:48px; cursor:pointer; z-index:10; position:fixed; top:50%; margin-top:-75px; background:#fff; outline:none !important; box-shadow:0 0 13px rgba(0, 0, 0, .23)}
 .slide-prev-link {left:35px}
 .slide-next-link {right:35px}
 .slide-prev-link:before,
