@@ -406,17 +406,25 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90; border-
 .funds-item-4:hover .funds-item-icon:after {height:260px; top:118px}
 .funds-item-5.active .funds-item-icon:after,
 .funds-item-5:hover .funds-item-icon:after {height:273px; top:118px}
-.funds-item-window {display:none; position:absolute; overflow:hidden; left:42px; top:-136px; background:#fff; z-index:9; width:460px; padding:0 40px 13px 40px; box-shadow:0 7px 16px rgba(67, 26, 45, .5); font-size:14px; line-height:20px}
+.funds-item-window {display:none; position:absolute; overflow:hidden; left:42px; top:-144px; background:#fff; z-index:9; width:480px; padding:0 30px 30px 30px; box-shadow:0 7px 16px rgba(67, 26, 45, .5); font-size:14px; line-height:20px}
 .funds-item-4 .funds-item-window,
 .funds-item-5 .funds-item-window {left:auto; right:42px}
-.funds-item-window h3 {margin:0 -40px 33px -40px; padding:22px 40px 26px 96px; background:#f1f1f1; position:relative}
-.funds-item-window h3 img {position:absolute; left:40px; top:50%; transform:translateY(-50%)}
+.funds-item-window-title {margin:0 -30px 25px -30px; padding:0 30px; background:#f1f1f1; position:relative; font-size:18px; line-height:24px; font-weight:bold; color:#431a2d}
+.funds-item-window-title-text {display:table; width:100%}
+.funds-item-window-title-text-inner {display:table-cell; vertical-align:middle; height:60px}
+.funds-item-window-prev,
+.funds-item-window-next {display:inline-block; vertical-align:middle; width:36px; height:36px; background:url(../images/funds-arrows.png)}
+.funds-item-window-prev {background-position:left top; margin:-3px 0 0 24px}
+.funds-item-window-prev:hover {background-position:left -37px}
+.funds-item-window-next {background-position:-37px top; margin:-3px 0 0 4px}
+.funds-item-window-next:hover {background-position:-37px -37px}
 .funds-item-window p {margin:0; padding:0}
-.funds-item-window h5 {margin:20px 0 0 0; padding:0; color:#431a2d; font-weight:bold; font-size:15px; line-height:24px}
+.funds-item-window h5 {margin:20px 0 0 0; padding:0; color:#431a2d; font-weight:bold; font-size:14px; line-height:20px}
 .funds-item.active .funds-item-window {display:block}
-.funds-item-more {font-size:11px; text-transform:uppercase; margin:32px 0 24px 0}
-.funds-item-more a {text-decoration:none}
-.funds-item-window-close {display:block; width:15px; height:15px; background:url(../images/funds-item-window-close.png); position:absolute; right:40px; top:27px}
+.funds-item-more {font-size:9px; line-height:31px; font-weight:bold; text-transform:uppercase; margin:32px 0 0 0; text-align:right}
+.funds-item-more a {display:inline-block; vertical-align:top; height:31px; padding:0 20px; border:1px solid #d0c6ca; color:#431a2d; text-decoration:none}
+.funds-item-more a:after {content:""; display:inline-block; width:16px; height:7px; background:url(../images/funds-item-more.png); vertical-align:middle; margin:-2px 0 0 12px}
+.funds-item-window-close {display:block; width:15px; height:15px; background:url(../images/funds-item-window-close.png); position:absolute; right:30px; top:21px}
 
 @media screen and (max-width:1024px) {
     .funds {width:100%}
@@ -468,18 +476,24 @@ header {position:fixed; left:0; top:0; right:0; height:72px; z-index:90; border-
     .funds-line {width:371px; height:421px; left:20px; bottom:93px; background:url(../images/funds-line-mobile.png)}
     .funds-item-1 {left:62px; top:384px}
     .funds-item-2 {left:282px; top:336px}
-    .funds-item-3 {left:170px; top:192px}
-    .funds-item-4 {left:62px; top:48px}
-    .funds-item-5 {left:282px; top:0}
+    .funds-item-3 {left:62px; top:216px}
+    .funds-item-4 {left:282px; top:170px}
+    .funds-item-5 {left:62px; top:48px}
     .funds-item-link:hover .funds-item-icon:before,
     .funds-item.active .funds-item-link .funds-item-icon:before {display:none}
     .funds-item-link:hover .funds-item-icon:after,
     .funds-item.active .funds-item-link .funds-item-icon:after {display:none}
     .funds-item-window,
     .funds-item-1 .funds-item-window,
+    .funds-item-2 .funds-item-window,
     .funds-item-3 .funds-item-window,
     .funds-item-4 .funds-item-window,
-    .funds-item-5 .funds-item-window {position:fixed; left:20px; top:77px; width:auto; bottom:151px; right:20px; overflow-y:auto; transform:none; padding-left:30px; padding-right:30px}
+    .funds-item-5 .funds-item-window {position:fixed; z-index:99; left:50%; top:50%; transform:translateY(-50%); width:350px; margin:0 0 0 -205px; right:auto; overflow-y:auto; padding-left:30px; padding-right:30px; padding-bottom:36px}
+    .funds-item-window-title {margin-bottom:97px}
+    .funds-item-more {float:none; position:absolute; left:0; right:0; top:91px; text-align:center; margin:0}
+    .funds-item-window-title-text-inner {padding:0 170px 0 0}
+    .funds-item-window-prev {margin:0; position:absolute; right:119px; top:12px}
+    .funds-item-window-next {margin:0; position:absolute; right:73px; top:12px}
 }
 
 footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; border-top:1px solid #431a2d}
