@@ -232,13 +232,18 @@ $(document).ready(function() {
             }).complete(function(data) {
                 var obj = $.parseJSON(data.responseText);
                 $('#ku').html(obj.ku);
+                $('#promise-ku').val(obj.ku);
                 $('#amount').html(obj.amount);
+                $('#promise-amount').val(obj.amount);
                 $('#profitableness').html(obj.profitableness);
                 $('#iddpercent').html(obj.iddpercent);
                 $('#idd').html(obj.idd);
                 $('#summidd').html(obj.summidd);
                 $('#iddcurrency').html(obj.iddcurrency);
                 $('#total').html(obj.total);
+
+                $('.calc-form-field-7 select option[value="' + $('.calc-form-field-5 select').val() + '"]').prop('selected', true);
+                $('.calc-form-field-7 select').trigger('chosen:updated');
 
                 $('.calc-results-params-chart-inner').html('');
                 $('.calc-results-params-chart-inner').html('<div id="chart2" class="chart-content"></div>');
