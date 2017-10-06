@@ -678,28 +678,32 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
     .calc-promise-results .calc-results-chart-legend {float:none; width:auto; padding:0}
 }
 
-.jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:26px; width:17px; height:26px; margin-left:-9px; background:url(../images/scroll.png); z-index:90; transition:opacity .3s ease}
-.jspScrollable.noscroll .jspContainer:before {opacity:0}
-.jspScrollable .jspContainer:after {content:""; display:block; position:absolute; left:50%; bottom:16px; width:10px; height:17px; margin-left:-5px; background:url(../images/scroll-arrow.png); z-index:90; animation:pulse-down 2s ease-in infinite; transition:opacity .3s ease}
-.jspScrollable.noscroll .jspContainer:after {opacity:0}
+.jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:30px; width:30px; height:19px; margin-left:-15px; background:url(../images/scroll.svg) no-repeat; background-size:100%; z-index:90; animation:scroll-down 3s linear infinite; transition:opacity .3s ease}
+.jspScrollable.noscroll .jspContainer:before {opacity:0; animation:none}
 
-@keyframes pulse-down{
-    20%{
-        transform:translate3d(0, 1px, 0)
+@keyframes scroll-down {
+    0%{
+        transform:translateY(5px); opacity:0;
     }
-    40%{
-        transform:translate3d(0, 5px, 0)
+    25%{
+        transform:translateY(10px); opacity:.5;
     }
-    60%{
-        transform:translate3d(0, 1px, 0)
+    50%{
+        transform:translateY(15px); opacity:1;
     }
-    80%{
-        transform:translate3d(0, 5px, 0)
+    75%{
+        transform:translateY(20px); opacity:.5;
     }
     100%{
-        transform:translate3d(0, 1px, 0)
+        transform:translateY(25px); opacity:0;
     }
 }
+
+.jspScrollable .jspContainer:after {content:""; display:block; position:absolute; left:50%; bottom:30px; width:30px; height:19px; margin-left:-15px; background:url(../images/scroll.svg) no-repeat; background-size:100%; z-index:90; animation:scroll-down 3s linear infinite 1s; opacity:0; transition:opacity .3s ease}
+.jspScrollable.noscroll .jspContainer:after {opacity:0; animation:none}
+
+.jspScrollable:before {content:""; display:block; position:absolute; left:50%; bottom:30px; width:30px; height:19px; margin-left:-15px; background:url(../images/scroll.svg) no-repeat; background-size:100%; z-index:90; animation:scroll-down 3s linear infinite 2s; opacity:0; transition:opacity .3s ease}
+.jspScrollable.noscroll:before {opacity:0; animation:none}
 
 .slide-prev-link,
 .slide-next-link {padding:0; border:none; text-indent:-10000px; overflow:hidden; border-radius:50%; width:48px; height:48px; cursor:pointer; z-index:10; position:fixed; top:50%; margin-top:-75px; background:#fff; outline:none !important; box-shadow:0 0 13px rgba(0, 0, 0, .23)}
