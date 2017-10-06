@@ -576,7 +576,7 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .calc-form-ctrl:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
 .calc-form-submit {float:right; width:270px; position:relative}
 .calc-form form.loading .calc-form-submit .btn {cursor:default; opacity:.5; background:#431a2d}
-.calc-loading {display:none; position:absolute; right:-28px; top:50%; margin-top:-12px; width:24px; height:24px; background:url(../images/loading.gif)}
+.calc-loading {display:none; position:absolute; left:50%; top:50%; margin-top:-12px; margin-left:-12px; width:24px; height:24px; background:url(../images/loading.gif); z-index:2}
 .calc-form form.loading .calc-loading {display:block}
 .calc-form-save {float:right; margin:0 20px 0 0; position:relative}
 .calc-form-save-link {display:block; width:218px; height:46px; border:1px solid #d0c6ca; border-radius:3px; text-align:center; text-transform:uppercase; text-decoration:none; color:#431a2d; font:11px/46px FedraSansProBook, sans-serif}
@@ -621,14 +621,15 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 
 @media screen and (max-width:1023px) {
     .calc-results-params-table {float:none; width:auto}
-    .calc-results-params-chart {float:none; width:auto}
+    .calc-results-params-table table {margin-bottom:-30px; position:relative; z-index:1}
+    .calc-results-params-chart {float:none; width:auto; padding:0 0 36px 0}
 }
 
 .calc-results-chart {background:#fff; padding:71px 0 0 0}
 .calc-results-chart .content {padding-top:0; padding-bottom:0}
 .calc-results-chart h2 {margin:0}
 .calc-results-chart .content+.chart {margin:0}
-.chart-calc-currency {text-transform:uppercase; font:11px/24px FedraSansProBook, sans-serif; padding:28px 0 0 0}
+.chart-calc-currency {text-transform:uppercase; font:11px/24px FedraSansProBook, sans-serif; padding:2px 0 0 0}
 .chart-calc-currency-link {color:#aaa; text-decoration:none; margin:0 0 0 19px}
 .chart-calc-currency-link span:first-child {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
 .chart-calc-currency-link.active span {color:#431a2d; font:bold 11px/24px FedraSansPro, sans-serif}
@@ -648,6 +649,34 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .calc-results-params-chart .calc-results-chart-legend {text-align:left; font-size:12px; line-height:18px; padding:0}
 .calc-results-params-chart .calc-results-chart-legend-item {padding:0 0 0 40px; margin:18px 0; display:block}
 .calc-results-params-chart .calc-results-chart-legend-item span {width:18px; height:18px}
+
+.calc-promise {background:#fff; margin:0 0 1px 0; padding:0; position:relative}
+.calc-promise .content {padding-top:45px; padding-bottom:53px}
+.calc-promise h3 {margin:0 0 35px 0; padding:0}
+.calc-promise-form {position:relative; z-index:1}
+.calc-promise-form form {margin:0; padding:0}
+.calc-promise-form form:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.calc-form-field-6 {float:left; width:207px}
+.calc-form-field-7 {float:left; width:207px; margin:0 0 0 10px}
+.calc-promise-form .calc-form-submit {float:left; width:152px; margin:0 0 0 10px}
+.calc-promise-form .calc-form-submit .btn {height:60px; line-height:60px; font-size:11px}
+.calc-promise-form form.loading .calc-form-submit .btn {cursor:default; opacity:.5; background:#431a2d}
+.calc-loading {display:none; position:absolute; left:50%; top:50%; margin-top:-12px; margin-left:-12px; width:24px; height:24px; background:url(../images/loading.gif); z-index:2}
+.calc-promise-form form.loading .calc-loading {display:block}
+.calc-promise-results {position:absolute; left:-9999px; top:-9999px; width:99%; margin:0 0 -30px 0}
+.calc-promise-results.open {position:relative; left:auto; top:auto; width:auto}
+.calc-promise-results-inner:after {content:"."; display:block; clear:both; visibility:hidden; height:0}
+.calc-results-promise-chart {float:left; width:460px; margin-top:-30px}
+.calc-promise-results .calc-results-chart-legend {float:left; width:260px; padding:90px 0 0 104px; text-align:left}
+.calc-promise-results .calc-results-chart-legend-item {display:block; margin:0 0 18px 0}
+
+@media screen and (max-width:1023px) {
+    .calc-form-field-6 {float:none; width:auto; margin:10px 0 0 0}
+    .calc-form-field-7 {float:none; width:auto; margin:10px -13px 0 0}
+    .calc-promise-form .calc-form-submit {float:none; width:auto; margin:10px 0 0 0}
+    .calc-results-promise-chart {float:none}
+    .calc-promise-results .calc-results-chart-legend {float:none; width:auto; padding:0}
+}
 
 .jspScrollable .jspContainer:before {content:""; display:block; position:absolute; left:50%; bottom:26px; width:17px; height:26px; margin-left:-9px; background:url(../images/scroll.png); z-index:90; transition:opacity .3s ease}
 .jspScrollable.noscroll .jspContainer:before {opacity:0}

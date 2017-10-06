@@ -421,9 +421,14 @@ $(document).ready(function() {
 
                 $('.chart-calc-currency-link').removeClass('active');
                 $('.calc-results').addClass('open');
-                $('.wrapper-content').animate({scrollTop: $('.calc-results').offset().top})
                 curForm.removeClass('loading');
                 curForm.find('input[type="submit"]').prop('disable', false)
+                var api = $('.wrapper-content').data('jsp');
+                if (api) {
+                    window.setTimeout(function() {
+                        api.scrollToElement($('.calc-results'), true, true);
+                    }, 100);
+                }
             });
         }
         e.preventDefault();
@@ -467,19 +472,50 @@ $(document).ready(function() {
             $('.calc-form-field-4 input').val(),
             $('.calc-form-field-5 select').val()
         ]);
-        $.removeCookie('calcConfig');
         $.cookie('calcConfig', JSON.stringify(configs));
         e.preventDefault();
     });
 
     $('body').on('click', '.calc-form-funds-item-remove', function(e) {
         var curItem = $(this).parent();
+        var curIndex = $('.calc-form-funds-item').index(curItem);
+        var configs = [];
+        if (typeof $.cookie('calcConfig') != 'undefined') {
+            configs = JSON.parse($.cookie('calcConfig'));
+        }
+        configs.splice(curIndex, 1);
+        $.cookie('calcConfig', JSON.stringify(configs));
         curItem.remove();
         e.preventDefault();
     });
 
     $('body').on('click', '.calc-form-funds-item-load', function(e) {
         var curItem = $(this).parent();
+        var curIndex = $('.calc-form-funds-item').index(curItem);
+        var configs = [];
+        if (typeof $.cookie('calcConfig') != 'undefined') {
+            configs = JSON.parse($.cookie('calcConfig'));
+        }
+        if (typeof configs[curIndex] != 'undefined') {
+            if (typeof configs[curIndex][1] != 'undefined') {
+                $('.calc-form-field-1 select option[value="' + configs[curIndex][1] + '"]').prop('selected', true);
+                $('.calc-form-field-1 select').trigger('chosen:updated');
+            }
+            if (typeof configs[curIndex][2] != 'undefined') {
+                $('.calc-form-field-2 input').val(configs[curIndex][2]);
+            }
+            if (typeof configs[curIndex][3] != 'undefined') {
+                $('.calc-form-field-3 select option[value="' + configs[curIndex][3] + '"]').prop('selected', true);
+                $('.calc-form-field-3 select').trigger('chosen:updated');
+            }
+            if (typeof configs[curIndex][4] != 'undefined') {
+                $('.calc-form-field-4 input').val(configs[curIndex][4]);
+            }
+            if (typeof configs[curIndex][5] != 'undefined') {
+                $('.calc-form-field-5 select option[value="' + configs[curIndex][5] + '"]').prop('selected', true);
+                $('.calc-form-field-5 select').trigger('chosen:updated');
+            }
+        }
         e.preventDefault();
     });
 
@@ -496,30 +532,111 @@ $(document).ready(function() {
         }
     });
 
+    loadConfigsCalc();
+
+    $('.calc-promise-form form').submit(function(e) {
+        var curForm = $(this);
+        if (!curForm.hasClass('loading')) {
+            curForm.addClass('loading');
+            curForm.find('input[type="submit"]').prop('disable', true)
+            $.ajax({
+                type: 'POST',
+                url: curForm.attr('action'),
+                dataType: 'json',
+                data: curForm.serialize(),
+                cache: false
+            }).complete(function(data) {
+                var obj = $.parseJSON(data.responseText);
+                $('#ku1').html(obj.ku);
+                $('#amount1').html(obj.amount);
+                $('#profitableness1').html(obj.profitableness);
+                $('#iddpercent1').html(obj.iddpercent);
+                $('#idd1').html(obj.idd);
+                $('#summidd1').html(obj.summidd);
+                $('#iddcurrency1').html(obj.iddcurrency);
+                $('#total1').html(obj.total);
+
+                $('.calc-results-promise-chart-inner').html('');
+                $('.calc-results-promise-chart-inner').html('<div id="chart3" class="chart-content"></div>');
+
+                var trace1 = {
+                    x: ['Начало<br /> действия<br /> договора'],
+                    y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Начало действия договора',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#c3c3c3'}
+                }
+
+                var trace2 = {
+                    x: ['Итоговая<br /> выплата'],
+                    y: [Number(obj.total.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Итоговая выплата',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#431a2d'}
+                }
+
+                var trace3 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.amount.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Страховая премия',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#aaaaaa'}
+                }
+
+                var trace4 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.idd.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'ИДД без учета валютной переоценки',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#f1f1f1'}
+                }
+
+                var trace5 = {
+                    x: ['Структура<br /> итоговой<br /> выплаты'],
+                    y: [Number(obj.summidd.replace(/ /g, '').replace(/,/g, '.'))],
+                    name: 'Сумма валютной переоценки для определения ИДД',
+                    type: 'bar',
+                    hoverinfo: 'y',
+                    marker: {color: '#802e54'}
+                }
+
+                var data = [trace1, trace2, trace3, trace4, trace5];
+
+                var layout = {
+                    barmode: 'stack',
+                    showlegend: false,
+                    yaxis: {
+                        side: 'right',
+                        hoverformat: ',r',
+                        tickformat: ',r'
+                    }
+                };
+
+                Plotly.newPlot('chart3', data, layout, {displayModeBar: false});
+
+                $('.calc-promise-results').addClass('open');
+                $('.wrapper-content').animate({scrollTop: $('.calc-results').offset().top})
+                curForm.removeClass('loading');
+                curForm.find('input[type="submit"]').prop('disable', false)
+            });
+        }
+        e.preventDefault();
+    });
+
 });
 
-function loadConfigCalc() {
-    if (typeof $.cookie('calcTitle') != 'undefined') {
-        $('.calc-form-save-window input[name="config"]').val($.cookie('calcTitle'));
-        $('.calc-form-title').html($.cookie('calcTitle'));
+function loadConfigsCalc() {
+    var configs = [];
+    if (typeof $.cookie('calcConfig') != 'undefined') {
+        configs = JSON.parse($.cookie('calcConfig'));
     }
-    if (typeof $.cookie('calcFund') != 'undefined') {
-        $('.calc-form-field-1 select option[value="' + $.cookie('calcFund') + '"]').prop('selected', true);
-        $('.calc-form-field-1 select').trigger('chosen:updated');
-    }
-    if (typeof $.cookie('calcDate') != 'undefined') {
-        $('.calc-form-field-2 input').val($.cookie('calcDate'));
-    }
-    if (typeof $.cookie('calcCurr') != 'undefined') {
-        $('.calc-form-field-3 select option[value="' + $.cookie('calcCurr') + '"]').prop('selected', true);
-        $('.calc-form-field-3 select').trigger('chosen:updated');
-    }
-    if (typeof $.cookie('calcAmount') != 'undefined') {
-        $('.calc-form-field-4 input').val($.cookie('calcAmount'));
-    }
-    if (typeof $.cookie('calcTime') != 'undefined') {
-        $('.calc-form-field-5 select option[value="' + $.cookie('calcTime') + '"]').prop('selected', true);
-        $('.calc-form-field-5 select').trigger('chosen:updated');
+    for (var i = 0; i < configs.length; i++) {
+        var curTitle = configs[i][0];
+        $('.calc-form-funds').append('<div class="calc-form-funds-item"><a href="#" class="calc-form-funds-item-load">' + curTitle + '</a><a href="#" class="calc-form-funds-item-remove"></a></div>');
     }
 }
 
@@ -617,8 +734,8 @@ function afterLoadContent() {
         var curBlock = $(this);
 
         if (!curBlock.hasClass('jspScrollable')) {
-            curBlock.find('.content').css({'margin-top': (curBlock.outerHeight() - curBlock.find('.content').outerHeight()) / 2});
-            curBlock.find('.main').css({'margin-top': (curBlock.outerHeight() - curBlock.find('.main').outerHeight()) / 2});
+            curBlock.find('> .jspContainer > .jspPane > .content').css({'margin-top': (curBlock.outerHeight() - curBlock.find('> .jspContainer > .jspPane > .content').outerHeight()) / 2});
+            curBlock.find('> .jspContainer > .jspPane > .main').css({'margin-top': (curBlock.outerHeight() - curBlock.find('> .jspContainer > .jspPane > .main').outerHeight()) / 2});
         }
     });
 }
