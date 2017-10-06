@@ -715,3 +715,7 @@ footer {position:fixed; left:0; right:0; bottom:0; z-index:80; overflow:hidden; 
 .slide-next-link:before {background-position:-11px top}
 .slide-prev-link:hover:before {background-position:left -18px}
 .slide-next-link:hover:before {background-position:-11px -18px}
+
+@media screen and (max-width:1023px) {
+    .calculator-error .content {padding-left:35px; padding-right:35px}
+}
